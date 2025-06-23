@@ -1,12 +1,16 @@
 import rebrandingIllu from './assets/annonce-illu.svg';
-import './App.css';
+import logoExtraSmall from './assets/logo-extra-small.svg';
+import './App.scss';
 
 const App = () => {
   return (
     <>
       <header>
-        <h1 className='manrope-text'>Marque Tapage</h1>
         <div>
+          <img src={logoExtraSmall} alt='Maque Tapage' />
+          <h1 className='manrope-text'>Marque Tapage</h1>
+        </div>
+        <div className='btn'>
           <p className='manrope-text'>Bientôt!</p>
         </div>
       </header>
