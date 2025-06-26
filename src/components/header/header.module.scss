@@ -1,0 +1,16 @@
+@use '../../assets/styles/theme.scss' as c;
+
+.header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 1.125rem;
+  height: 4.5rem;
+  background: c.$surface-0;
+  & > h1 {
+    flex: 1;
+  }
+}

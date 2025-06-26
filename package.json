@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "better-sqlite3": "^12.1.1",
+    "framer-motion": "^12.19.1",
+    "motion": "^12.19.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5"
   },

@@ -1,0 +1,26 @@
+@use '../../assets/styles/theme.scss' as c;
+
+.icon_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  transition: background .2s cubic-bezier(0, 0, 0.2, 1);
+  outline: none;
+  border: none;
+  border-radius: 100rem;
+  outline-offset: -1px;
+  cursor: pointer;
+  &:hover {
+    background: color-mix(in srgb, c.$on-surface-0 8%, transparent);
+  }
+  &:active {
+    background: color-mix(in srgb, c.$on-surface-0 12%, transparent);
+  }
+  &:focus-visible {
+    background: color-mix(in srgb, c.$on-surface-0 16%, transparent);
+    outline: 2px c.$on-surface-1 solid;
+  }
+}
