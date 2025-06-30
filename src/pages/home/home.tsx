@@ -11,44 +11,125 @@ import brandAwaranessIcon from '../../assets/img/brand_awareness-secondary-20dp.
 
 export const Home = () => {
   return (
-    <motion.div
-      className={s.home}
-      initial={{
-        x: '-70vw',
-      }}
-      animate={{
-        x: 0,
-        transition: {
-          duration: 0.2,
-          ease: [0, 0.71, 0.2, 1.01],
-        },
-      }}
-      exit={{ x: '-70vw' }}
-    >
+    <div className={s.home}>
       <Header>
-        <IconButton alt='Logo marque tapage extra small'>
-          {logoExtraSmall}
-        </IconButton>
-        <h1 className='headline-small'>Marque Tapage</h1>
-        <IconButton alt='Logo marque tapage extra small'>{search}</IconButton>
+        <motion.div
+          initial={{
+            scale: 0.5,
+            opacity: 0,
+          }}
+          animate={{
+            scale: 1,
+            opacity: 1,
+          }}
+        >
+          <IconButton alt='Logo marque tapage extra small'>
+            {logoExtraSmall}
+          </IconButton>
+        </motion.div>
+        <motion.h1
+          className='headline-small'
+          initial={{
+            translateX: '2rem',
+            opacity: 0,
+          }}
+          animate={{
+            translateX: '0',
+            opacity: 1,
+          }}
+        >
+          Marque Tapage
+        </motion.h1>
+        <motion.div
+          className='headline-small'
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+        >
+          <IconButton alt='Logo marque tapage extra small'>{search}</IconButton>
+        </motion.div>
       </Header>
       <section className={s.welcome_message}>
-        <h2 className='display-medium'>Bienvenue au Marque Tapage</h2>
+        <motion.h2
+          initial={{
+            translateY: '10%',
+            opacity: 0,
+          }}
+          animate={{
+            translateY: '0',
+            opacity: 1,
+          }}
+          transition={{
+            delay: 0.1,
+          }}
+          className='display-medium'
+        >
+          Bienvenue au Marque Tapage
+        </motion.h2>
+        {/* <h2 className='display-medium'>Bienvenue au Marque Tapage</h2> */}
         <div className={s.action_container}>
-          <Button to='favorites' color='pink'>
-            <img src={favoriteIcon} alt='Favoris' />
-            <p className='label-large'>Favoris</p>
-          </Button>
-          <Button color='blue'>
-            <img src={searchIcon} alt='Réserver' />
-            <p className='label-large'>Réserver</p>
-          </Button>
-          <Button to='news' color='green'>
-            <img src={brandAwaranessIcon} alt='Actualités' />
-            <p className='label-large'>Actualités</p>
-          </Button>
+          <motion.div
+            style={{ transformOrigin: 'center left' }}
+            initial={{
+              rotate: 30,
+              opacity: 0,
+            }}
+            animate={{
+              rotate: 0,
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.2,
+            }}
+          >
+            <Button to='favorites' color='pink'>
+              <img src={favoriteIcon} alt='Favoris' />
+              <p className='label-large'>Favoris</p>
+            </Button>
+          </motion.div>
+          <motion.div
+            style={{ transformOrigin: 'center right' }}
+            initial={{
+              rotate: -30,
+              opacity: 0,
+            }}
+            animate={{
+              rotate: 0,
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.4,
+            }}
+          >
+            <Button color='blue'>
+              <img src={searchIcon} alt='Réserver' />
+              <p className='label-large'>Réserver</p>
+            </Button>
+          </motion.div>
+          <motion.div
+            style={{ transformOrigin: 'center right' }}
+            initial={{
+              rotate: -30,
+              opacity: 0,
+            }}
+            animate={{
+              rotate: 0,
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.6,
+            }}
+          >
+            <Button to='news' color='green'>
+              <img src={brandAwaranessIcon} alt='Actualités' />
+              <p className='label-large'>Actualités</p>
+            </Button>
+          </motion.div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
