@@ -5,11 +5,12 @@ type IconButtonProps = {
   children: string;
   alt: string;
   to?: string;
+  reload?: boolean;
 };
 
-export const IconButton = ({ children, alt, to }: IconButtonProps) => {
+export const IconButton = ({ children, alt, to, reload }: IconButtonProps) => {
   if (to) return (
-    <NavLink to={to} className={s.icon_button}>
+    <NavLink to={to} reloadDocument={reload} className={s.icon_button}>
       <img src={children} alt={alt} />
     </NavLink>
   );

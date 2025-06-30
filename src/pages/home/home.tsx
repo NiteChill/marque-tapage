@@ -23,7 +23,7 @@ export const Home = () => {
             opacity: 1,
           }}
         >
-          <IconButton alt='Logo marque tapage extra small'>
+          <IconButton to='/' alt='Logo marque tapage extra small' reload>
             {logoExtraSmall}
           </IconButton>
         </motion.div>
