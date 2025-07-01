@@ -8,6 +8,7 @@ import s from './home.module.scss';
 import favoriteIcon from '../../assets/img/favorite-primary-20dp.svg';
 import searchIcon from '../../assets/img/search-tertiary-20dp.svg';
 import brandAwaranessIcon from '../../assets/img/brand_awareness-secondary-20dp.svg';
+import { AboutCard } from '../../components/about-card/about-card';
 
 export const Home = () => {
   return (
@@ -55,7 +56,7 @@ export const Home = () => {
       <section className={s.welcome_message}>
         <motion.h2
           initial={{
-            translateY: '10%',
+            translateY: '2rem',
             opacity: 0,
           }}
           animate={{
@@ -130,6 +131,7 @@ export const Home = () => {
           </motion.div>
         </div>
       </section>
+      <AboutCard />
     </div>
   );
 };

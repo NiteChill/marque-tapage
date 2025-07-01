@@ -1,0 +1,22 @@
+@use '../../assets/styles/theme.scss' as c;
+
+.about_card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 1.875rem;
+  background: c.$surface-1;
+  padding: 1rem;
+  gap: 0.5rem;
+  & > img {
+    border-radius: 0.875rem;
+  }
+  & > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-height: 3rem;
+  }
+}
