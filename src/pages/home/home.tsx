@@ -9,6 +9,10 @@ import favoriteIcon from '../../assets/img/favorite-primary-20dp.svg';
 import searchIcon from '../../assets/img/search-tertiary-20dp.svg';
 import brandAwaranessIcon from '../../assets/img/brand_awareness-secondary-20dp.svg';
 import { AboutCard } from '../../components/about-card/about-card';
+import arch from '../../assets/img/arch.svg';
+import drops from '../../assets/img/drops.svg';
+import eye from '../../assets/img/eye.svg';
+import waterfall from '../../assets/img/waterfall.svg';
 
 export const Home = () => {
   return (
@@ -54,23 +58,54 @@ export const Home = () => {
         </motion.div>
       </Header>
       <section className={s.welcome_message}>
-        <motion.h2
-          initial={{
-            translateY: '2rem',
-            opacity: 0,
-          }}
-          animate={{
-            translateY: '0',
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.1,
-          }}
-          className='display-medium'
-        >
-          Bienvenue au Marque Tapage
-        </motion.h2>
-        {/* <h2 className='display-medium'>Bienvenue au Marque Tapage</h2> */}
+        <div className={s.message_container}>
+          <div className={s.shapes_container}>
+            <motion.img
+              src={arch}
+              alt='Arche'
+              initial={{ scale: 0.5, opacity: 0, translateX: '-2rem' }}
+              animate={{ scale: 1, opacity: 1, translateX: 0 }}
+              transition={{ delay: 0.8 }}
+            />
+            <motion.img
+              src={waterfall}
+              alt="Chute d'eau"
+              initial={{ scale: 0.5, opacity: 0, translateX: '-2rem' }}
+              animate={{ scale: 1, opacity: 1, translateX: 0 }}
+              transition={{ delay: 0.85 }}
+            />
+            <motion.img
+              src={eye}
+              alt='Oeil'
+              initial={{ scale: 0.5, opacity: 0, translateX: '-2rem' }}
+              animate={{ scale: 1, opacity: 1, translateX: 0 }}
+              transition={{ delay: 0.9 }}
+            />
+            <motion.img
+              src={drops}
+              alt='Goutes'
+              initial={{ scale: 0.5, opacity: 0, translateX: '-2rem' }}
+              animate={{ scale: 1, opacity: 1, translateX: 0 }}
+              transition={{ delay: 0.95 }}
+            />
+          </div>
+          <motion.h2
+            initial={{
+              translateY: '2rem',
+              opacity: 0,
+            }}
+            animate={{
+              translateY: '0',
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.1,
+            }}
+            className='display-medium'
+          >
+            Bienvenue au Marque Tapage
+          </motion.h2>
+        </div>
         <div className={s.action_container}>
           <motion.div
             style={{ transformOrigin: 'center left' }}
