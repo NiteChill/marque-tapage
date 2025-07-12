@@ -6,8 +6,8 @@ import logoExtraSmall from '../../assets/img/logo-extra-small.svg';
 import search from '../../assets/img/search-default-24dp.svg';
 import s from './home.module.scss';
 import favoriteIcon from '../../assets/img/favorite-primary-20dp.svg';
-import searchIcon from '../../assets/img/search-tertiary-20dp.svg';
-import brandAwaranessIcon from '../../assets/img/brand_awareness-secondary-20dp.svg';
+import searchIcon from '../../assets/img//search-secondary-20dp.svg';
+import brandAwaranessIcon from '../../assets/img/brand_awareness-tertiary-20dp.svg';
 import { AboutCard } from '../../components/about-card/about-card';
 import arch from '../../assets/img/arch.svg';
 import drops from '../../assets/img/drops.svg';
@@ -101,7 +101,7 @@ export const Home = () => {
             transition={{
               delay: 0.1,
             }}
-            className='display-medium'
+            className='display-small'
           >
             Bienvenue au Marque Tapage
           </motion.h2>
@@ -140,9 +140,9 @@ export const Home = () => {
               delay: 0.4,
             }}
           >
-            <Button color='blue'>
-              <img src={searchIcon} alt='Réserver' />
-              <p className='label-large'>Réserver</p>
+            <Button to='news' color='blue'>
+              <img src={brandAwaranessIcon} alt='Actualités' />
+              <p className='label-large'>Actualités</p>
             </Button>
           </motion.div>
           <motion.div
@@ -159,9 +159,9 @@ export const Home = () => {
               delay: 0.6,
             }}
           >
-            <Button to='news' color='green'>
-              <img src={brandAwaranessIcon} alt='Actualités' />
-              <p className='label-large'>Actualités</p>
+            <Button color='green'>
+              <img src={searchIcon} alt='Réserver' />
+              <p className='label-large'>Réserver</p>
             </Button>
           </motion.div>
         </div>

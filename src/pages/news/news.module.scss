@@ -1,7 +1,21 @@
+@use '../../assets/styles/theme.scss' as c;
+
 .news {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 4.5rem 1.5rem 0 1.5rem;
+  padding: 4.5rem 1.5rem 4.5rem 1.5rem;
+  background: c.$surface-0;
+}
+
+@media screen and (min-width: 550px) {
+  .news {
+    padding: 5rem 2.5rem 5rem 2.5rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .news {
+    padding: 5rem 5rem 7rem 5rem;
+  }
 }

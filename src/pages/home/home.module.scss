@@ -1,9 +1,11 @@
+@use '../../assets/styles/variables.scss' as v;
+
 .home {
-  display: flex;
+  display: flex;  
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 4.5rem 1.5rem 0 1.5rem;
+  padding: 4.5rem 1.5rem 4.5rem 1.5rem;
+  align-items: center;
   & > .welcome_message {
     display: flex;
     flex-direction: column;
@@ -11,7 +13,7 @@
     justify-content: center;
     gap: 1.5rem;
     width: 100%;
-    height: 95%;
+    height: calc(95vh - 4.5rem);
     flex-shrink: 0;
     & > .message_container {
       & > .shapes_container {
@@ -30,6 +32,36 @@
       gap: 0.5rem;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 380px) {
+  .home > .welcome_message > .message_container > h2 {
+    font-size: v.$display-medium-size;
+    line-height: v.$display-medium-height;
+    font-weight: v.$display-medium-weight;
+    letter-spacing: v.$display-medium-spacing;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .home {
+    & > .welcome_message {
+      height: calc(95vh - 5rem);
+    }
+    padding: 5rem 2.5rem 5rem 2.5rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .home {
+    padding: 5rem 5rem 7rem 5rem;
+    & > .welcome_message > .message_container > h2 {
+      font-size: v.$display-large-size;
+      line-height: v.$display-large-height;
+      font-weight: v.$display-large-weight;
+      letter-spacing: v.$display-large-spacing;
     }
   }
 }
