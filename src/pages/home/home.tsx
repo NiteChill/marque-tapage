@@ -13,6 +13,10 @@ import arch from '../../assets/img/arch.svg';
 import drops from '../../assets/img/drops.svg';
 import eye from '../../assets/img/eye.svg';
 import waterfall from '../../assets/img/waterfall.svg';
+import { NewsCard } from '../../components/news-card/news-card';
+
+// fake news data //
+import jeanCremers from '../../assets/news-img/jean_cremers.png';
 
 export const Home = () => {
   return (
@@ -167,6 +171,37 @@ export const Home = () => {
         </div>
       </section>
       <AboutCard />
+      <section className={s.news_section}>
+        <motion.h2
+          initial={{
+            translateY: '1rem',
+            opacity: 0,
+          }}
+          whileInView={{
+            translateY: '0',
+            opacity: 1,
+          }}
+          transition={{
+            delay: 0.1,
+          }}
+          viewport={{
+            amount: 0.8,
+          }}
+          className='headline-large'
+        >
+          Actualités
+        </motion.h2>
+        <div className={s.news_card_carousel}>
+          <NewsCard
+            img={jeanCremers}
+            alt='Jean Crémers'
+            categories={['Dédicace', 'Rencontre']}
+            date='9 Juillet, 2025'
+          >
+            Jean Crémers en dédicace au Marque Tapage
+          </NewsCard>
+        </div>
+      </section>
     </div>
   );
 };

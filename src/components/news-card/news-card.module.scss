@@ -1,0 +1,16 @@
+.news_card {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 1rem;
+  gap: 0.5rem;
+  & > img {
+    width: 100%;
+    border-radius: 0.875rem;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
