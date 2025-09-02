@@ -1,0 +1,28 @@
+import { Link } from 'react-router-dom';
+import s from './icon-button.module.scss';
+
+export const IconButton = ({ children, to = false, onClick, theme, className, size }) => {
+  let style = s.standard,
+    wh = '3.2rem';
+  if (size === 'big') wh = '3.6rem'
+  if (theme == 'secondary') style = s.secondary;
+  const Content = () => (
+    <div style={{width: wh, height: wh}}>
+      <div>{children}</div>
+    </div>
+  );
+
+  if (to) return (
+    <Link to={to} className={s.icon_button + ' ' + style + ' ' + className}>
+      <Content />
+    </Link>
+  )
+  else return (
+    <button
+      onClick={onClick}
+      className={s.icon_button + ' ' + style + ' ' + className}
+    >
+      <Content />
+    </button>
+  );
+};

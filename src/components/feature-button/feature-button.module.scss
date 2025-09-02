@@ -1,0 +1,83 @@
+@use '../../assets/styles/theme.scss' as t;
+
+.feature_button {
+  height: 4.8rem;
+  width: 7.2rem;
+  border-radius: 100rem;
+  border: none;
+  background: none;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+  &:active {
+    scale: 0.92;
+  }
+}
+
+.standard {
+  background: t.$surface-2;
+  & > div {
+    & > * {
+      color: t.$on-surface-2;
+    }
+  }
+  &:hover > div {
+    background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
+  }
+  &:focus-visible > div {
+    background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
+  }
+}
+
+.primary {
+  background: t.$primary-1;
+  & > div {
+    & > * {
+      color: t.$on-primary;
+    }
+  }
+  &:hover > div {
+    background: color-mix(in srgb, t.$on-primary 8%, transparent);
+  }
+  &:focus-visible > div {
+    background: color-mix(in srgb, t.$on-primary 16%, transparent);
+  }
+}
+
+.secondary {
+  background: t.$secondary-1;
+  & > div {
+    & > * {
+      color: t.$on-secondary;
+    }
+  }
+  &:hover > div {
+    background: color-mix(in srgb, t.$on-secondary 8%, transparent);
+  }
+  &:focus-visible > div {
+    background: color-mix(in srgb, t.$on-secondary 16%, transparent);
+  }
+}
+
+.tertiary {
+  background: t.$tertiary-1;
+  & > div {
+    & > * {
+      color: t.$on-tertiary;
+    }
+  }
+  &:hover > div {
+    background: color-mix(in srgb, t.$on-tertiary 8%, transparent);
+  }
+  &:focus-visible > div {
+    background: color-mix(in srgb, t.$on-tertiary 16%, transparent);
+  }
+}

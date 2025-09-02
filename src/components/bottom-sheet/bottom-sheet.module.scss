@@ -1,0 +1,54 @@
+@use '../../assets/styles/theme.scss' as t;
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+  &.visible {
+    pointer-events: auto;
+  }
+}
+
+.bottom_sheet {
+  position: relative;
+  user-select: none;
+  touch-action: none;
+  position: fixed;
+  right: 0;
+  bottom: -1rem;
+  left: 0;
+  height: calc(100vh - 24px);
+  border-radius: 1.2rem 1.2rem 0 0;
+  background: t.$surface-1;
+  z-index: 30;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 3rem;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+  & > header {
+    position: sticky;
+      top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.8rem;
+  }
+  & > main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

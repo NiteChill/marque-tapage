@@ -1,0 +1,110 @@
+@use './variables.scss' as v;
+
+.display-large {
+  font-size: v.$display-large-size;
+  line-height: v.$display-large-height;
+  font-weight: v.$display-large-weight;
+  letter-spacing: v.$display-large-spacing;
+}
+
+.display-medium {
+  font-size: v.$display-medium-size;
+  line-height: v.$display-medium-height;
+  font-weight: v.$display-medium-weight;
+  letter-spacing: v.$display-medium-spacing;
+}
+
+.display-small {
+  font-size: v.$display-small-size;
+  line-height: v.$display-small-height;
+  font-weight: v.$display-small-weight;
+  letter-spacing: v.$display-small-spacing;
+}
+
+
+.headline-large {
+  font-size: v.$headline-large-size;
+  line-height: v.$headline-large-height;
+  font-weight: v.$headline-large-weight;
+  letter-spacing: v.$headline-large-spacing;
+}
+
+.headline-medium {
+  font-size: v.$headline-medium-size;
+  line-height: v.$headline-medium-height;
+  font-weight: v.$headline-medium-weight;
+  letter-spacing: v.$headline-medium-spacing;
+}
+
+.headline-small {
+  font-size: v.$headline-small-size;
+  line-height: v.$headline-small-height;
+  font-weight: v.$headline-small-weight;
+  letter-spacing: v.$headline-small-spacing;
+}
+
+
+.title-large {
+  font-size: v.$title-large-size;
+  line-height: v.$title-large-height;
+  font-weight: v.$title-large-weight;
+  letter-spacing: v.$title-large-spacing;
+}
+
+.title-medium {
+  font-size: v.$title-medium-size;
+  line-height: v.$title-medium-height;
+  font-weight: v.$title-medium-weight;
+  letter-spacing: v.$title-medium-spacing;
+}
+
+.title-small {
+  font-size: v.$title-small-size;
+  line-height: v.$title-small-height;
+  font-weight: v.$title-small-weight;
+  letter-spacing: v.$title-small-spacing;
+}
+
+
+.body-large {
+  font-size: v.$body-large-size;
+  line-height: v.$body-large-height;
+  font-weight: v.$body-large-weight;
+  letter-spacing: v.$body-large-spacing;
+}
+
+.body-medium {
+  font-size: v.$body-medium-size;
+  line-height: v.$body-medium-height;
+  font-weight: v.$body-medium-weight;
+  letter-spacing: v.$body-medium-spacing;
+}
+
+.body-small {
+  font-size: v.$body-small-size;
+  line-height: v.$body-small-height;
+  font-weight: v.$body-small-weight;
+  letter-spacing: v.$body-small-spacing;
+}
+
+
+.label-large {
+  font-size: v.$label-large-size;
+  line-height: v.$label-large-height;
+  font-weight: v.$label-large-weight;
+  letter-spacing: v.$label-large-spacing;
+}
+
+.label-medium {
+  font-size: v.$label-medium-size;
+  line-height: v.$label-medium-height;
+  font-weight: v.$label-medium-weight;
+  letter-spacing: v.$label-medium-spacing;
+}
+
+.label-small {
+  font-size: v.$label-small-size;
+  line-height: v.$label-small-height;
+  font-weight: v.$label-small-weight;
+  letter-spacing: v.$label-small-spacing;
+}
