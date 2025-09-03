@@ -17,8 +17,10 @@
 
 .bottom_sheet {
   position: relative;
-  user-select: none;
   touch-action: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  user-select: none;
   position: fixed;
   right: 0;
   bottom: -1.2rem;
@@ -28,8 +30,6 @@
   background: t.$surface-1;
   z-index: 30;
   overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
   padding-bottom: 3.2rem;
   cursor: grab;
   &:active {

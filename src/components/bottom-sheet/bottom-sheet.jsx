@@ -20,12 +20,14 @@ export const BottomSheet = ({ open = false, setOpen, homeApi }) => {
     })),
     bind = useDrag(
       ({
+        event,
         last,
         movement: [, my],
         velocity: [, vy],
         direction: [, dy],
         memo,
       }) => {
+        event.preventDefault();
         if (memo === undefined) {
           memo = y.get();
         }
@@ -63,7 +65,6 @@ export const BottomSheet = ({ open = false, setOpen, homeApi }) => {
       {
         from: () => [0, y.get()],
         bounds: { top: 0, bottom: window.innerHeight },
-        pointer: { touch: true },
         eventOptions: { passive: false },
       }
     );
