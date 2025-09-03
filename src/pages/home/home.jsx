@@ -23,7 +23,7 @@ export const Home = ({ setBottomSheet, z }) => {
       className={s.home}
       id='parent'
       style={{
-        transform: z.to((val) => `perspective(100px) translateZ(${val}px)`),
+        transform: z.to((val) => `perspective(100px) translateY(${Math.abs(val) / 5 * 16 }px) translateZ(${val}px)`),
         borderRadius: z.to((val) => `${(Math.abs(val) / 5) * 1.2}rem`),
         background: z.to((val) => {
           const progress = Math.abs(val) / 5,
@@ -76,6 +76,7 @@ export const Home = ({ setBottomSheet, z }) => {
         This is a favorites-article...
       </Link>
       <Link to='/news/A_news_article'>This is a news-article...</Link>
+      <div style={{ minHeight: '100vh' }}></div>
     </Page>
   );
 };

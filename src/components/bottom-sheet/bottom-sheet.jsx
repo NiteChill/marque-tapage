@@ -63,6 +63,8 @@ export const BottomSheet = ({ open = false, setOpen, homeApi }) => {
       {
         from: () => [0, y.get()],
         bounds: { top: 0, bottom: window.innerHeight },
+        pointer: { touch: true },
+        eventOptions: { passive: false },
       }
     );
 

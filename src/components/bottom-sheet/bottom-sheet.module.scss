@@ -11,7 +11,7 @@
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
   &.visible {
-    pointer-events: auto;
+    pointer-events: auto; 
   }
 }
 
@@ -21,16 +21,16 @@
   touch-action: none;
   position: fixed;
   right: 0;
-  bottom: -1rem;
+  bottom: -1.2rem;
   left: 0;
-  height: calc(100vh - 24px);
+  height: calc(100dvh - 1.6rem);
   border-radius: 1.2rem 1.2rem 0 0;
   background: t.$surface-1;
   z-index: 30;
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-bottom: 3rem;
+  padding-bottom: 3.2rem;
   cursor: grab;
   &:active {
     cursor: grabbing;
