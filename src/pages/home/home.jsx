@@ -17,23 +17,26 @@ import { NewsSheet } from '../../components/bottom-sheet/contents/news-sheet/new
 import { SearchSheet } from '../../components/bottom-sheet/contents/search-sheet/search-sheet';
 import { ScheduleSheet } from '../../components/bottom-sheet/contents/schedule-sheet/schedule-sheet';
 
-export const Home = ({ setBottomSheet, z }) => {
+export const Home = ({ setBottomSheet, progress }) => {
   return (
     <Page
       className={s.home}
       id='parent'
       style={{
-        transform: z.to((val) => `perspective(100px) translateY(${Math.abs(val) / 5 * 16 }px) translateZ(${val}px)`),
-        borderRadius: z.to((val) => `${(Math.abs(val) / 5) * 1.2}rem`),
-        background: z.to((val) => {
-          const progress = Math.abs(val) / 5,
-            color1 = [254, 255, 255], // #FEFFFF (surface-0)
-            color2 = [246, 247, 249]; // #F6F7F9 (surface-2)
-          return `rgb(${Math.round(
-            color1[0] + (color2[0] - color1[0]) * progress
-          )}, ${Math.round(
-            color1[1] + (color2[1] - color1[1]) * progress
-          )}, ${Math.round(color1[2] + (color2[2] - color1[2]) * progress)})`;
+        transform: progress.to(
+          (val) =>
+            `perspective(100px) translateY(${(val / 100) * 16}px) translateZ(${
+              -val / 20
+            }px)`
+        ),
+        borderRadius: progress.to((val) => `${(val / 100) * 1.2}rem`),
+        background: progress.to((val) => {
+          const pV = val / 100,
+            c1 = [254, 255, 255], // #FEFFFF (surface-0)
+            c2 = [246, 247, 249]; // #F6F7F9 (surface-2)
+          return `rgb(${Math.round(c1[0] + (c2[0] - c1[0]) * pV)}, ${Math.round(
+            c1[1] + (c2[1] - c1[1]) * pV
+          )}, ${Math.round(c1[2] + (c2[2] - c1[2]) * pV)})`;
         }),
       }}
       animate
@@ -49,24 +52,24 @@ export const Home = ({ setBottomSheet, z }) => {
         <nav className={s.features_container}>
           <FeatureButton
             theme='primary'
-            onClick={() => setBottomSheet([true, <FavoritesSheet />])}
+            onClick={() => setBottomSheet([true, <FavoritesSheet />, true])}
           >
             <Favorite />
           </FeatureButton>
           <FeatureButton
             theme='tertiary'
-            onClick={() => setBottomSheet([true, <NewsSheet />])}
+            onClick={() => setBottomSheet([true, <NewsSheet />, true])}
           >
             <BrandAwareness />
           </FeatureButton>
           <FeatureButton
             theme='secondary'
-            onClick={() => setBottomSheet([true, <SearchSheet />])}
+            onClick={() => setBottomSheet([true, <SearchSheet />, true])}
           >
             <Search />
           </FeatureButton>
           <FeatureButton
-            onClick={() => setBottomSheet([true, <ScheduleSheet />])}
+            onClick={() => setBottomSheet([true, <ScheduleSheet />, true])}
           >
             <Schedule />
           </FeatureButton>

@@ -1,0 +1,35 @@
+@use '../../assets/styles/theme.scss' as t;
+
+.call_to_action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.8rem;
+  border-radius: 1.2rem;
+  background: t.$on-surface-0;
+  outline: none;
+  border: none;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    border-radius: inherit;
+    padding: 0 3.2rem;
+    width: 100%;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    & > p {
+      color: t.$surface-1;
+    }
+  }
+  &:hover > div {
+    background: color-mix(in srgb, t.$surface-1 8%, transparent);
+  }
+  &:focus-visible > div {
+    background: color-mix(in srgb, t.$surface-1 16%, transparent);
+  }
+  &:active {
+    scale: 0.92;
+  }
+}
