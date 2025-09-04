@@ -3,7 +3,7 @@ import welcomeIllustration from '../../../../assets/img/welcome-illustration.svg
 import { CallToAction } from '../../../call-to-action/call-to-action';
 import Cookies from 'js-cookie';
 
-export const WelcomeSheet = ({ setOpen }) => {
+export const WelcomeSheet = ({ setOpen, open }) => {
   return (
     <main className={s.welcome_sheet}>
       <div className={s.illustration}>
@@ -21,6 +21,8 @@ export const WelcomeSheet = ({ setOpen }) => {
         <CallToAction className={s.call_to_action} onClick={() => {
           setOpen([false, open[1], open[2]]);
           Cookies.set('marque-tapage-visited', 'true', { expires: 365 });
+          console.log(open[1]);
+                 
         }}>Continuer</CallToAction>
       </div>
     </main>

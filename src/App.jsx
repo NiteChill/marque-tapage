@@ -34,7 +34,7 @@ export default function App() {
     Cookies.remove('marque-tapage-visited');
     const hasVisitedBefore = Cookies.get('marque-tapage-visited');
     if (!hasVisitedBefore)
-      setBottomSheet([true, <WelcomeSheet setOpen={setBottomSheet} />, false]);
+      setBottomSheet([true, <WelcomeSheet open={bottomSheet} setOpen={setBottomSheet} />, false]);  // error, content disappearing instantly on continue; ------
   }, []);
   return (
     <TransitionGroup component={null}>
