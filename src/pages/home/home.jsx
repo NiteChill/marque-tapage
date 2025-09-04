@@ -52,24 +52,48 @@ export const Home = ({ setBottomSheet, progress }) => {
         <nav className={s.features_container}>
           <FeatureButton
             theme='primary'
-            onClick={() => setBottomSheet([true, <FavoritesSheet />, true])}
+            onClick={() =>
+              setBottomSheet({
+                isOpen: true,
+                content: <FavoritesSheet />,
+                hasHeader: true,
+              })
+            }
           >
             <Favorite />
           </FeatureButton>
           <FeatureButton
             theme='tertiary'
-            onClick={() => setBottomSheet([true, <NewsSheet />, true])}
+            onClick={() =>
+              setBottomSheet({
+                isOpen: true,
+                content: <NewsSheet />,
+                hasHeader: true,
+              })
+            }
           >
             <BrandAwareness />
           </FeatureButton>
           <FeatureButton
             theme='secondary'
-            onClick={() => setBottomSheet([true, <SearchSheet />, true])}
+            onClick={() =>
+              setBottomSheet({
+                isOpen: true,
+                content: <SearchSheet />,
+                hasHeader: true,
+              })
+            }
           >
             <Search />
           </FeatureButton>
           <FeatureButton
-            onClick={() => setBottomSheet([true, <ScheduleSheet />, true])}
+            onClick={() =>
+              setBottomSheet({
+                isOpen: true,
+                content: <ScheduleSheet />,
+                hasHeader: true,
+              })
+            }
           >
             <Schedule />
           </FeatureButton>

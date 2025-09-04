@@ -4,16 +4,11 @@ import { useRef, useEffect } from 'react';
 import { IconButton } from '../icon-button/icon-button';
 import { Close } from '../icons/icons';
 
-export const BottomSheet = ({
-  open = false,
-  setOpen,
-  progress,
-  progressApi,
-}) => {
+export const BottomSheet = ({ open, setOpen, progress, progressApi }) => {
   const bottomSheetRef = useRef(null);
 
   useEffect(() => {
-    if (open[0]) {
+    if (open.isOpen) {
       progressApi.start({ progress: 100 });
     } else {
       progressApi.start({ progress: 0 });
@@ -26,7 +21,7 @@ export const BottomSheet = ({
         className={s.bottom_sheet}
         ref={bottomSheetRef}
         style={{
-          paddingTop: open[2] ? 0 : '2rem',
+          paddingTop: open.hasHeader ? 0 : '2rem',
           transform: progress.to((val) => {
             const translateY =
               window.innerHeight - (val / 100) * window.innerHeight;
@@ -34,21 +29,25 @@ export const BottomSheet = ({
           }),
         }}
       >
-        {open[2] && (
+        {open.hasHeader && (
           <header>
-            <IconButton onClick={() => setOpen([false, open[1], open[2]])}>
+            <IconButton
+              onClick={() => setOpen((prev) => ({ ...prev, isOpen: false }))}
+            >
               <Close />
             </IconButton>
           </header>
         )}
-        {open[1]}
+        {open.content}
       </animated.div>
       <animated.div
-        className={`${s.backdrop} ${open[0] ? s.visible : ''}`}
+        className={`${s.backdrop} ${open.isOpen ? s.visible : ''}`}
         style={{
           opacity: progress.to((val) => val / 100),
         }}
-        onClick={() => open[2] && setOpen([false, open[1], open[2]])}
+        onClick={() =>
+          open.hasHeader && setOpen((prev) => ({ ...prev, isOpen: false }))
+        }
       />
     </>
   );

@@ -2,8 +2,12 @@ import s from './welcome-sheet.module.scss';
 import welcomeIllustration from '../../../../assets/img/welcome-illustration.svg';
 import { CallToAction } from '../../../call-to-action/call-to-action';
 import Cookies from 'js-cookie';
+import { useEffect } from 'react';
 
 export const WelcomeSheet = ({ setOpen, open }) => {
+  useEffect(() => {
+    console.log(open);
+  }, [open]);
   return (
     <main className={s.welcome_sheet}>
       <div className={s.illustration}>
@@ -18,12 +22,15 @@ export const WelcomeSheet = ({ setOpen, open }) => {
         N'attendez plus et rejoignez l'aventure Marque Tapage à 100%!
       </p>
       <div className={s.action}>
-        <CallToAction className={s.call_to_action} onClick={() => {
-          setOpen([false, open[1], open[2]]);
-          Cookies.set('marque-tapage-visited', 'true', { expires: 365 });
-          console.log(open[1]);
-                 
-        }}>Continuer</CallToAction>
+        <CallToAction
+          className={s.call_to_action}
+          onClick={() => {
+            setOpen((prev) => ({ ...prev, isOpen: false }));
+            Cookies.set('marque-tapage-visited', 'true', { expires: 365 });
+          }}
+        >
+          Continuer
+        </CallToAction>
       </div>
     </main>
   );

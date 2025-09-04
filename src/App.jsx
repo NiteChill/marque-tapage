@@ -21,7 +21,11 @@ export default function App() {
     firstLoad && setFirstLoad(false);
     !firstLoad && animatePages(location.pathname);
   }, [location]);
-  const [bottomSheet, setBottomSheet] = useState([false, '', true]);
+  const [bottomSheet, setBottomSheet] = useState({
+    isOpen: false,
+    content: '',
+    hasHeader: true,
+  });
   const [{ progress }, progressApi] = useSpring(() => ({
     progress: 0,
     config: {
@@ -31,11 +35,24 @@ export default function App() {
   }));
 
   useEffect(() => {
+    // setBottomSheet({
+    //   isOpen: false,
+    //   content: <WelcomeSheet open={bottomSheet} setOpen={setBottomSheet} />,
+    //   hasHeader: false,
+    // });
     Cookies.remove('marque-tapage-visited');
     const hasVisitedBefore = Cookies.get('marque-tapage-visited');
     if (!hasVisitedBefore)
-      setBottomSheet([true, <WelcomeSheet open={bottomSheet} setOpen={setBottomSheet} />, false]);  // error, content disappearing instantly on continue; ------
+      setBottomSheet({
+        isOpen: true,
+        content: <WelcomeSheet open={bottomSheet} setOpen={setBottomSheet} />,
+        hasHeader: false,
+      }); // error, content disappearing instantly on continue; ------
   }, []);
+  useEffect(() => {
+    console.log(bottomSheet);
+    
+  }, [bottomSheet])
   return (
     <TransitionGroup component={null}>
       <CSSTransition key={location.key} timeout={350} nodeRef={nodeRef}>
