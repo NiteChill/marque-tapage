@@ -16,11 +16,6 @@
 }
 
 .bottom_sheet {
-  position: relative;
-  touch-action: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  user-select: none;
   position: fixed;
   right: 0;
   bottom: -1.2rem;

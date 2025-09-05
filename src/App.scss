@@ -17,6 +17,10 @@
   }
 }
 
+a[href^="tel"] {
+  text-decoration: none;
+}
+
 html {
   font-size: calc(1em * 0.625);
 }

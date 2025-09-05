@@ -13,8 +13,11 @@ export const ScheduleSheet = () => {
       </p>
       <div className={s.schedule}>
         <ScheduleLine label='Lundi' hours='Fermé' />
+        <span className={s.divider} />
         <ScheduleLine label='Mar. - Ven.' hours='10:00 - 18:00' />
+        <span className={s.divider} />
         <ScheduleLine label='Samedi' hours='10:00 - 17:00' />
+        <span className={s.divider} />
         <ScheduleLine label='Dimanche' hours='Fermé' />
       </div>
       <h4 className='title-large'>Contact</h4>
@@ -22,6 +25,7 @@ export const ScheduleSheet = () => {
         <ContactsLine src={phoneIcon} alt='Phone'>
           +32 497 12 15 24
         </ContactsLine>
+        <span className={s.divider} />
         <ContactsLine src={mailIcon} alt='Mail'>
           marquetapage@gmail.com
         </ContactsLine>
