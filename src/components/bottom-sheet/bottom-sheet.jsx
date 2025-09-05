@@ -22,11 +22,7 @@ export const BottomSheet = ({ open, setOpen, progress, progressApi }) => {
         ref={bottomSheetRef}
         style={{
           paddingTop: open.hasHeader ? 0 : '2rem',
-          transform: progress.to((val) => {
-            const translateY =
-              window.innerHeight - (val / 100) * window.innerHeight;
-            return `translateY(${translateY}px)`;
-          }),
+          transform: progress.to((val) => `translateY(${100 - val}%)`),
         }}
       >
         {open.hasHeader && (

@@ -4,8 +4,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2rem;
   & > h2 {
     color: t.$on-surface-0;
     padding-top: 1.6rem;
+    text-align: center;
+  }
+  & > p {
+    color: t.$on-surface-1;
+    padding-top: 1.2rem;
+    text-align: center;
   }
 }

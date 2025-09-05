@@ -5,9 +5,6 @@ import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
 export const WelcomeSheet = ({ setOpen, open }) => {
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
   return (
     <main className={s.welcome_sheet}>
       <div className={s.illustration}>

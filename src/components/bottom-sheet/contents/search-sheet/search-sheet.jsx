@@ -4,6 +4,9 @@ export const SearchSheet = () => {
   return (
     <main className={s.search_sheet}>
       <h2 className='headline-large'>Rechercher</h2>
+      <p className='body-medium'>
+        Cherchez, réservez ou commandez un livre grâce au site Librel.
+      </p>
     </main>
   );
 };
