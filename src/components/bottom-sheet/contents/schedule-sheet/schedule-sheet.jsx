@@ -1,6 +1,6 @@
 import { ChevronRight } from '../../../icons/icons';
 import s from './schedule-sheet.module.scss';
-import phoneIcon from '../../../../assets/img/phone-icon.svg'
+import phoneIcon from '../../../../assets/img/phone-icon.svg';
 import mailIcon from '../../../../assets/img/mail-icon.svg';
 
 export const ScheduleSheet = () => {
@@ -22,12 +22,16 @@ export const ScheduleSheet = () => {
       </div>
       <h4 className='title-large'>Contact</h4>
       <div className={s.contacts}>
-        <ContactsLine src={phoneIcon} alt='Phone'>
-          +32 497 12 15 24
+        <ContactsLine src={phoneIcon} alt='Telephone' href='tel:+32493368812'>
+          0493 36 88 12
         </ContactsLine>
         <span className={s.divider} />
-        <ContactsLine src={mailIcon} alt='Mail'>
-          marquetapage@gmail.com
+        <ContactsLine
+          src={mailIcon}
+          alt='Email'
+          href='mailto:info@marquetapage.be'
+        >
+          info@marquetapage.be
         </ContactsLine>
       </div>
     </main>
@@ -43,12 +47,12 @@ const ScheduleLine = ({ label, hours }) => {
   );
 };
 
-const ContactsLine = ({ children, src, alt, onClick }) => {
+const ContactsLine = ({ children, src, alt, href }) => {
   return (
-    <div className={s.contacts_line} onClick={onClick}>
+    <a className={s.contacts_line} href={href}>
       <img src={src} alt={alt} />
-      <p className='title-medium'>{children}</p>
+      <p className='body-large'>{children}</p>
       <ChevronRight />
-    </div>
+    </a>
   );
 };
