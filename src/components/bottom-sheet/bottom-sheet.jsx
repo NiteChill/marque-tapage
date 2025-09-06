@@ -7,14 +7,7 @@ import { BottomSheetContext } from '../../context/bottom-sheet-context';
 
 export const BottomSheet = () => {
   const bottomSheetRef = useRef(null),
-    [open, setOpen, progress, progressApi] = useContext(BottomSheetContext),
-    [height, setHeight] = useState(window.visualViewport.height),
-    updateHeight = () => setHeight(window.visualViewport.height);
-
-  useEffect(() => {
-    window.visualViewport.addEventListener('resize', updateHeight);
-    return window.visualViewport.removeEventListener('resize', updateHeight);
-  }, []);
+    [open, setOpen, progress, progressApi] = useContext(BottomSheetContext);
 
   useEffect(() => {
     if (open.isOpen) {
@@ -31,7 +24,6 @@ export const BottomSheet = () => {
         style={{
           paddingTop: open.hasHeader ? 0 : '2rem',
           transform: progress.to((val) => `translateY(${100 - val}%)`),
-          // height: height - 28,
         }}
       >
         {open.hasHeader && (
