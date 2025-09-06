@@ -25,6 +25,7 @@ export const BottomSheet = () => {
         style={{
           paddingTop: open.hasHeader ? 0 : '2rem',
           transform: progress.to((val) => `translateY(${100 - val}%)`),
+          height: window.innerHeight
         }}
       >
         {open.hasHeader && (
