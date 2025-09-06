@@ -18,6 +18,7 @@
 .bottom_sheet {
   position: fixed;
   top: 2.8rem;
+  bottom: 0;
   width: 100vw;
   border-radius: 1.2rem 1.2rem 0 0;
   background: t.$surface-1;
