@@ -21,7 +21,7 @@
     width: 100%;
     align-items: center;
     border-radius: 1rem;
-    background: t.$surface-2;
+    background: t.$surface-1;
     & > .schedule_line {
       display: flex;
       align-items: center;
@@ -50,7 +50,7 @@
     width: 100%;
     align-items: flex-end;
     border-radius: 1rem;
-    background: t.$surface-2;
+    background: t.$surface-1;
     overflow: auto;
     & > .contacts_line {
       display: flex;
