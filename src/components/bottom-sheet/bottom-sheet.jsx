@@ -8,13 +8,13 @@ import { BottomSheetContext } from '../../context/bottom-sheet-context';
 export const BottomSheet = () => {
   const bottomSheetRef = useRef(null),
     [open, setOpen, progress, progressApi] = useContext(BottomSheetContext),
-    [height, setHeight] = useState(window.innerHeight),
-    updateHeight = () => setHeight(window.innerHeight);
-  
+    [height, setHeight] = useState(window.visualViewport.height),
+    updateHeight = () => setHeight(window.visualViewport.height);
+
   useEffect(() => {
-    window.addEventListener('resize', updateHeight);
-    return window.removeEventListener('resize', updateHeight);
-  }, [])
+    window.visualViewport.addEventListener('resize', updateHeight);
+    return window.visualViewport.removeEventListener('resize', updateHeight);
+  }, []);
 
   useEffect(() => {
     if (open.isOpen) {
