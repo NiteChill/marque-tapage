@@ -1,13 +1,20 @@
 import { animated } from '@react-spring/web';
 import s from './bottom-sheet.module.scss';
-import { useRef, useEffect, useContext } from 'react';
+import { useRef, useEffect, useContext, useState } from 'react';
 import { IconButton } from '../icon-button/icon-button';
 import { Close } from '../icons/icons';
 import { BottomSheetContext } from '../../context/bottom-sheet-context';
 
 export const BottomSheet = () => {
   const bottomSheetRef = useRef(null),
-    [open, setOpen, progress, progressApi] = useContext(BottomSheetContext);
+    [open, setOpen, progress, progressApi] = useContext(BottomSheetContext),
+    [height, setHeight] = useState(window.innerHeight),
+    updateHeight = () => setHeight(window.innerHeight);
+  
+  useEffect(() => {
+    window.addEventListener('resize', updateHeight);
+    return window.removeEventListener('resize', updateHeight);
+  }, [])
 
   useEffect(() => {
     if (open.isOpen) {
@@ -16,7 +23,6 @@ export const BottomSheet = () => {
       progressApi.start({ progress: 0 });
     }
   }, [open, progressApi]);
-
   return (
     <>
       <animated.div
@@ -25,7 +31,7 @@ export const BottomSheet = () => {
         style={{
           paddingTop: open.hasHeader ? 0 : '2rem',
           transform: progress.to((val) => `translateY(${100 - val}%)`),
-          height: window.innerHeight
+          height: height - 28,
         }}
       >
         {open.hasHeader && (
