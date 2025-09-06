@@ -1,0 +1,53 @@
+@use '../../assets/styles/theme.scss' as t;
+
+.search_input {
+  display: flex;
+  width: 100%;
+  height: 5.6rem;
+  border-radius: 100rem;
+  background: t.$surface-3;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  cursor: text;
+  & > form {
+    display: flex;
+    width: inherit;
+    border-radius: inherit;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      height: 100%;
+      padding-left: 1.6rem;
+      & > input {
+        display: flex;
+        flex: 1;
+        background: none;
+        outline: none;
+        border: none;
+        padding-left: 0.8rem;
+        color: t.$on-surface-0;
+        &::placeholder,
+        &::-webkit-input-placeholder,
+        &:-moz-placeholder {
+          color: color-mix(in srgb, t.$on-surface-2 75%, transparent);
+        }
+      }
+    }
+    & > .submit {
+      height: 5.6rem;
+      width: 5.6rem;
+    }
+  }
+  &:hover > form {
+    background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
+  }
+  &:active > form {
+    background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
+  }
+  &.focused:hover > form {
+    background: none;
+  }
+}

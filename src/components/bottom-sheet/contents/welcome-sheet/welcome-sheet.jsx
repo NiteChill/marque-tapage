@@ -2,9 +2,11 @@ import s from './welcome-sheet.module.scss';
 import welcomeIllustration from '../../../../assets/img/welcome-illustration.svg';
 import { CallToAction } from '../../../call-to-action/call-to-action';
 import Cookies from 'js-cookie';
-import { useEffect } from 'react';
+import { useContext } from 'react';
+import { BottomSheetContext } from '../../../../context/bottom-sheet-context';
 
-export const WelcomeSheet = ({ setOpen, open }) => {
+export const WelcomeSheet = () => {
+  const [, setOpen] = useContext(BottomSheetContext);
   return (
     <main className={s.welcome_sheet}>
       <div className={s.illustration}>

@@ -16,8 +16,11 @@ import { FavoritesSheet } from '../../components/bottom-sheet/contents/favorites
 import { NewsSheet } from '../../components/bottom-sheet/contents/news-sheet/news-sheet';
 import { SearchSheet } from '../../components/bottom-sheet/contents/search-sheet/search-sheet';
 import { ScheduleSheet } from '../../components/bottom-sheet/contents/schedule-sheet/schedule-sheet';
+import { useContext } from 'react';
+import { BottomSheetContext } from '../../context/bottom-sheet-context';
 
-export const Home = ({ setBottomSheet, progress }) => {
+export const Home = () => {
+  const [, setOpen, progress] = useContext(BottomSheetContext);
   return (
     <Page
       className={s.home}
@@ -53,7 +56,7 @@ export const Home = ({ setBottomSheet, progress }) => {
           <FeatureButton
             theme='primary'
             onClick={() =>
-              setBottomSheet({
+              setOpen({
                 isOpen: true,
                 content: <FavoritesSheet />,
                 hasHeader: true,
@@ -65,7 +68,7 @@ export const Home = ({ setBottomSheet, progress }) => {
           <FeatureButton
             theme='tertiary'
             onClick={() =>
-              setBottomSheet({
+              setOpen({
                 isOpen: true,
                 content: <NewsSheet />,
                 hasHeader: true,
@@ -77,7 +80,7 @@ export const Home = ({ setBottomSheet, progress }) => {
           <FeatureButton
             theme='secondary'
             onClick={() =>
-              setBottomSheet({
+              setOpen({
                 isOpen: true,
                 content: <SearchSheet />,
                 hasHeader: true,
@@ -88,7 +91,7 @@ export const Home = ({ setBottomSheet, progress }) => {
           </FeatureButton>
           <FeatureButton
             onClick={() =>
-              setBottomSheet({
+              setOpen({
                 isOpen: true,
                 content: <ScheduleSheet />,
                 hasHeader: true,

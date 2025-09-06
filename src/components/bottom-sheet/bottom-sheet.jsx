@@ -1,11 +1,13 @@
 import { animated } from '@react-spring/web';
 import s from './bottom-sheet.module.scss';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import { IconButton } from '../icon-button/icon-button';
 import { Close } from '../icons/icons';
+import { BottomSheetContext } from '../../context/bottom-sheet-context';
 
-export const BottomSheet = ({ open, setOpen, progress, progressApi }) => {
-  const bottomSheetRef = useRef(null);
+export const BottomSheet = () => {
+  const bottomSheetRef = useRef(null),
+    [open, setOpen, progress, progressApi] = useContext(BottomSheetContext);
 
   useEffect(() => {
     if (open.isOpen) {

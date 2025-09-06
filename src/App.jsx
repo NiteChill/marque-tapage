@@ -11,6 +11,7 @@ import { NewsArticle } from './pages/news-article/news-article';
 import { BottomSheet } from './components/bottom-sheet/bottom-sheet';
 import { WelcomeSheet } from './components/bottom-sheet/contents/welcome-sheet/welcome-sheet';
 import { useSpring } from '@react-spring/web';
+import { BottomSheetContext } from './context/bottom-sheet-context';
 
 export default function App() {
   const location = useLocation(),
@@ -40,9 +41,9 @@ export default function App() {
     if (!hasVisitedBefore)
       setBottomSheet({
         isOpen: true,
-        content: <WelcomeSheet open={bottomSheet} setOpen={setBottomSheet} />,
+        content: <WelcomeSheet />,
         hasHeader: false,
-      }); // error, content disappearing instantly on continue; ------
+      });
   }, []);
   return (
     <TransitionGroup component={null}>
@@ -53,23 +54,20 @@ export default function App() {
             display: 'contents',
           }}
         >
-          <Routes location={location}>
-            <Route
-              path='/'
-              element={
-                <Home setBottomSheet={setBottomSheet} progress={progress} />
-              }
-            />
-            <Route path='/favorites/:article' element={<FavoritesArticle />} />
-            <Route path='/news/:article' element={<NewsArticle />} />
-            <Route path='*' element={<Navigate to='/' />} />
-          </Routes>
-          <BottomSheet
-            open={bottomSheet}
-            setOpen={setBottomSheet}
-            progress={progress}
-            progressApi={progressApi}
-          />
+          <BottomSheetContext
+            value={[bottomSheet, setBottomSheet, progress, progressApi]}
+          >
+            <Routes location={location}>
+              <Route path='/' element={<Home />} />
+              <Route
+                path='/favorites/:article'
+                element={<FavoritesArticle />}
+              />
+              <Route path='/news/:article' element={<NewsArticle />} />
+              <Route path='*' element={<Navigate to='/' />} />
+            </Routes>
+            <BottomSheet />
+          </BottomSheetContext>
         </div>
       </CSSTransition>
     </TransitionGroup>
