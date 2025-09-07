@@ -25,10 +25,7 @@ export const WelcomeSheet = () => {
           className={s.call_to_action}
           onClick={() => {
             setOpen((prev) => ({ ...prev, isOpen: false }));
-            Cookies.set('marque-tapage-visited', 'true', {
-              expires: 365,
-              secure: true
-            });
+            Cookies.set('marque-tapage-visited', 'true', { expires: 365 });
           }}
         >
           Continuer

@@ -25,14 +25,11 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
         let a = [...prev];
         if (a.length >= 5) a.pop();
         a.unshift(value);
+        Cookies.set('marque-tapage-search-history', JSON.stringify(a), {
+          expires: 365,
+        });
         return a;
       });
-      Cookies.remove('marque-tapage-search-history');
-      // Cookies.set(
-      //   'marque-tapage-search-history',
-      //   JSON.stringify(searchHistory),
-      //   { expires: 365, secure: true }
-      // );
     };
   useEffect(() => {
     const h = Cookies.get('marque-tapage-search-history');
