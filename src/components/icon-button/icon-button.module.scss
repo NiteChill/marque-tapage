@@ -11,6 +11,7 @@
   background: none;
   outline: none;
   cursor: pointer;
+  user-select: none;
   & > div {
     height: 3.6rem;
     width: 3.6rem;

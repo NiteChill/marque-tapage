@@ -18,14 +18,14 @@ export const SearchInput = () => {
       );
     }
   useEffect(() => {
-    if (open.isOpen) inputRef.current.focus();
+    if (open.isOpen) inputRef.current.focus({preventScroll: true});
     else inputRef.current.blur();
     setInput({ ...input, value: '' });
   }, [open.isOpen]);
   return (
     <div className={s.search_input + ' ' + (input.focused ? s.focused : '')}>
       <form onSubmit={handleSubmit}>
-        <div onClick={() => inputRef.current.focus()}>
+        <div onClick={() => inputRef.current.focus({preventScroll: true})}>
           <Search />
           <input
             className='body-large'
@@ -34,7 +34,7 @@ export const SearchInput = () => {
             ref={inputRef}
             value={input.value}
             onInput={(e) => setInput({ ...input, value: e.target.value })}
-            onFocus={() => setInput({ ...input, focused: true })}
+            onFocus={(e) => setInput({ ...input, focused: true })}
             onBlur={() => setInput({ ...input, focused: false })}
           />
         </div>

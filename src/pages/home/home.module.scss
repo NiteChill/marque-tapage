@@ -4,7 +4,7 @@
 .home {
   padding: 0 2rem;
   transform-origin: center top;
-  overflow: hidden;
+  backface-visibility: hidden;
   & > .hero {
     display: flex;
     flex-direction: column;

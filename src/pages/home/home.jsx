@@ -27,10 +27,15 @@ export const Home = () => {
       id='parent'
       style={{
         transform: progress.to(
-          (val) =>
-            `perspective(100px) translateY(${(val / 100) * 16}px) translateZ(${
-              -val / 20
-            }px)`
+          (val) => {
+            // recreating the perspective effect with scale because translateZ has a rendering issue where border-radius doesn't clip correctly when 3D transformed if overflow isn't hidden.
+            const perspective = 100,
+              translateZ = -val / 20, // goes from 0 when val = 0 to -5 when val = 100
+              scale = perspective / (perspective - translateZ);
+            return `translateY(${(val / 100) * 16}px) scale(${
+              scale
+            })`
+          }
         ),
         borderRadius: progress.to((val) => `${(val / 100) * 1.2}rem`),
         background: progress.to((val) => {
@@ -106,7 +111,7 @@ export const Home = () => {
         This is a favorites-article...
       </Link>
       <Link to='/news/A_news_article'>This is a news-article...</Link>
-      <div style={{ minHeight: '100vh' }}></div>
+      <div style={{ minHeight: '200vh'}}></div>
     </Page>
   );
 };
