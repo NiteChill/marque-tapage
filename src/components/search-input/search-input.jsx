@@ -3,29 +3,49 @@ import { IconButton } from '../icon-button/icon-button';
 import { ArrowUpwardAlt, Search } from '../icons/icons';
 import s from './search-input.module.scss';
 import { BottomSheetContext } from '../../context/bottom-sheet-context';
+import Cookies from 'js-cookie';
 
-export const SearchInput = () => {
+export const SearchInput = ({ searchHistory, setSearchHistory }) => {
   const inputRef = useRef(null),
     [open] = useContext(BottomSheetContext),
     [input, setInput] = useState({ value: '', focused: true }),
     handleSubmit = (e) => {
       e.preventDefault();
+      if (!input.value) return;
       const encodedValue = encodeURIComponent(input.value);
+      handleCookies(input.value);
       setInput({ ...input, value: '' });
       window.open(
         `https://www.librel.be/listeliv.php?flou&mots_recherche=${encodedValue}&base=allbooks`,
         '_blank'
       );
-    }
+    },
+    handleCookies = (value) => {
+      setSearchHistory((prev) => {
+        let a = [...prev];
+        if (a.length >= 5) a.pop();
+        a.unshift(value);
+        return a;
+      });
+      Cookies.set(
+        'marque-tapage-search-history',
+        JSON.stringify(searchHistory),
+        { expires: 365 }
+      );
+    };
   useEffect(() => {
-    if (open.isOpen) inputRef.current.focus({preventScroll: true});
+    const h = Cookies.get('marque-tapage-search-history');
+    if (h) searchHistory = JSON.parse(h);
+  }, []);
+  useEffect(() => {
+    if (open.isOpen) inputRef.current.focus({ preventScroll: true });
     else inputRef.current.blur();
     setInput({ ...input, value: '' });
   }, [open.isOpen]);
   return (
     <div className={s.search_input + ' ' + (input.focused ? s.focused : '')}>
       <form onSubmit={handleSubmit}>
-        <div onClick={() => inputRef.current.focus({preventScroll: true})}>
+        <div onClick={() => inputRef.current.focus({ preventScroll: true })}>
           <Search />
           <input
             className='body-large'
