@@ -30,7 +30,7 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
       Cookies.set(
         'marque-tapage-search-history',
         JSON.stringify(searchHistory),
-        { expires: 365 }
+        { expires: 365, secure: true }
       );
     };
   useEffect(() => {
