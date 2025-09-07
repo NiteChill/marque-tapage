@@ -27,6 +27,7 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
         a.unshift(value);
         return a;
       });
+      Cookies.remove('marque-tapage-search-history');
       Cookies.set(
         'marque-tapage-search-history',
         JSON.stringify(searchHistory),
