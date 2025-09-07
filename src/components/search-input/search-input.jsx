@@ -35,7 +35,7 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
     };
   useEffect(() => {
     const h = Cookies.get('marque-tapage-search-history');
-    if (h) searchHistory = JSON.parse(h);
+    if (h) setSearchHistory(JSON.parse(h));
   }, []);
   useEffect(() => {
     if (open.isOpen) inputRef.current.focus({ preventScroll: true });
