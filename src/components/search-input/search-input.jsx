@@ -52,11 +52,11 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
             ref={inputRef}
             value={input.value}
             onInput={(e) => setInput({ ...input, value: e.target.value })}
-            onFocus={(e) => setInput({ ...input, focused: true })}
-            onBlur={() => setInput({ ...input, focused: false })}
+            // onFocus={(e) => setInput({ ...input, focused: true })}
+            // onBlur={() => setInput({ ...input, focused: false })}
           />
         </div>
-        <IconButton theme='secondary' size='extra-large' className={s.submit}>
+        <IconButton theme={input.value ? 'secondary' : 'disabled'} size='extra-large' onClick={handleSubmit} className={s.submit}>
           <ArrowUpwardAlt />
         </IconButton>
       </form>

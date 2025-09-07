@@ -42,13 +42,13 @@
       width: 5.6rem;
     }
   }
-  &:hover > form {
-    background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
-  }
-  &:active > form {
-    background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
-  }
-  &.focused:hover > form {
-    background: none;
-  }
+  // &:hover > form {
+  //   background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
+  // }
+  // &:active > form {
+  //   background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
+  // }
+  // &.focused:hover > form {
+  //   background: none;
+  // }
 }
