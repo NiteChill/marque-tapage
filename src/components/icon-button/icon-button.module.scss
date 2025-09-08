@@ -62,10 +62,21 @@
   }
 }
 
-.disabled > div {
-  background: t.$surface-3;
-  opacity: 0.60;
-  & > div > * {
-    color: t.$on-surface-2;
+.disabled {
+  & > div {
+    background: t.$surface-3;
+    opacity: 0.8;
+    & > div > * {
+      color: t.$on-surface-2;
+    }
+  }
+  &:hover > div > div {
+    background: none;
+  }
+  &:focus-visible > div > div {
+    background: none;
+  }
+  &:active > div {
+    scale: none;
   }
 }

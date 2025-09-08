@@ -3,9 +3,11 @@ import { History } from '../../../icons/icons';
 import { SearchInput } from '../../../search-input/search-input';
 import s from './search-sheet.module.scss';
 import Cookies from 'js-cookie';
+import { TextButton } from '../../../text-button/text-button';
 
 export const SearchSheet = () => {
-  const [searchHistory, setSearchHistory] = useState([]);
+  const [searchHistory, setSearchHistory] = useState([]),
+    [edit, setEdit] = useState(false);
   useEffect(() => {
     const h = Cookies.get('marque-tapage-search-history');
     if (h) setSearchHistory(JSON.parse(h));
@@ -22,7 +24,9 @@ export const SearchSheet = () => {
       />
       <div className={s.history_title}>
         <p className='label-large'>Recherches récentes</p>
-        <button className='title-small'>Gérer</button>
+        <TextButton active={edit} onClick={() => setEdit(!edit)}>
+          {['Gérer', 'OK']}
+        </TextButton>
       </div>
       <div className={s.history}>
         {searchHistory.map((el, id) => (

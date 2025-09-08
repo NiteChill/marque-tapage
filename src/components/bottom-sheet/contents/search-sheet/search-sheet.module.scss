@@ -20,30 +20,9 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 1.6rem 0.4rem 0 1.6rem;
+    padding: 1.8rem 0.4rem 0.2rem 1.6rem;
     & > p {
       color: t.$on-surface-2;
-    }
-    & > button {
-      display: flex;
-      padding: 0.8rem 1.2rem;
-      border-radius: 100rem;
-      color: t.$on-surface-1;
-      transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-      border: none;
-      background: none;
-      &:hover {
-        background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
-      }
-      &:focus-visible {
-        background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
-      }
-      &:active {
-        scale: 0.92;
-      }
     }
   }
   & > .history {

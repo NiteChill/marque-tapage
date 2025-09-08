@@ -8,13 +8,13 @@ import Cookies from 'js-cookie';
 export const SearchInput = ({ searchHistory, setSearchHistory }) => {
   const inputRef = useRef(null),
     [open] = useContext(BottomSheetContext),
-    [input, setInput] = useState({ value: '', focused: true }),
+    [input, setInput] = useState(''),
     handleSubmit = (e) => {
       e.preventDefault();
-      if (!input.value) return;
-      const encodedValue = encodeURIComponent(input.value);
-      handleCookies(input.value);
-      setInput({ ...input, value: '' });
+      if (!input) return;
+      const encodedValue = encodeURIComponent(input);
+      handleCookies(input);
+      setInput('');
       window.open(
         `https://www.librel.be/listeliv.php?flou&mots_recherche=${encodedValue}&base=allbooks`,
         '_blank'
@@ -38,10 +38,10 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
   useEffect(() => {
     if (open.isOpen) inputRef.current.focus({ preventScroll: true });
     else inputRef.current.blur();
-    setInput({ ...input, value: '' });
+    setInput('');
   }, [open.isOpen]);
   return (
-    <div className={s.search_input + ' ' + (input.focused ? s.focused : '')}>
+    <div className={s.search_input}>
       <form onSubmit={handleSubmit}>
         <div onClick={() => inputRef.current.focus({ preventScroll: true })}>
           <Search />
@@ -50,13 +50,17 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
             type='text'
             placeholder='Chercher'
             ref={inputRef}
-            value={input.value}
-            onInput={(e) => setInput({ ...input, value: e.target.value })}
-            // onFocus={(e) => setInput({ ...input, focused: true })}
-            // onBlur={() => setInput({ ...input, focused: false })}
+            value={input}
+            onInput={(e) => setInput(e.target.value)}
           />
         </div>
-        <IconButton theme={input.value ? 'secondary' : 'disabled'} size='extra-large' onClick={handleSubmit} className={s.submit}>
+        <IconButton
+          theme='secondary'
+          disabled={!input}
+          size='extra-large'
+          onClick={handleSubmit}
+          className={s.submit}
+        >
           <ArrowUpwardAlt />
         </IconButton>
       </form>
