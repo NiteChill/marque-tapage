@@ -10,7 +10,7 @@ export const TextButton = ({ children, active, onClick }) => {
     gsap.to(btnRef.current, {
       width: active ? txtRef.current.clientWidth + 24 : 'auto',
       ease: 'elastic(1.4,0.9)',
-      duration: 0.4,
+      duration: 0.5,
     });
   }, [active]);
   return (
