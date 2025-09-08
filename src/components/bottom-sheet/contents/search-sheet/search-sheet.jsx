@@ -6,10 +6,50 @@ import Cookies from 'js-cookie';
 import { TextButton } from '../../../text-button/text-button';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { idGenerator, removeNonAlphanumeric } from '../../../../utils/utils';
 
 export const SearchSheet = () => {
+  let d = [];
   const [searchHistory, setSearchHistory] = useState([]),
-    [edit, setEdit] = useState(false);
+    // [deletedItems, setDeletedItems] = useState([]),
+    [edit, setEdit] = useState(false),
+    handleDelete = (id, index) => {
+      console.log(id);
+
+      gsap
+        .timeline({
+          onComplete: () => {
+            d.push(index);
+          },
+        })
+        .to(`#${id}`, {
+          x: '-100%',
+          opacity: 0,
+          ease: 'power1.inOut',
+          duration: 0.3,
+        })
+        .to(`#${id}`, {
+          height: 0,
+          ease: 'power1.inOut',
+          duration: 0.2,
+        });
+    },
+    updateHistory = () => {
+      setSearchHistory((prev) => {
+        const a = prev.filter((_, index) => {
+          return !new Set(d).has(index);
+        });
+        Cookies.set('marque-tapage-search-history', JSON.stringify(a), {
+          expires: 365,
+        });
+        gsap.set('.history-line-reset', {
+          height: 'auto',
+          x: 0,
+          opacity: 1,
+        });
+        return a;
+      });
+    };
   useEffect(() => {
     const h = Cookies.get('marque-tapage-search-history');
     if (h) setSearchHistory(JSON.parse(h));
@@ -42,26 +82,37 @@ export const SearchSheet = () => {
       />
       <div className={s.history_title}>
         <p className='label-large'>Recherches récentes</p>
-        <TextButton active={edit} onClick={() => setEdit(!edit)}>
+        <TextButton
+          active={edit}
+          onClick={() => {
+            edit && updateHistory();
+            setEdit(!edit);
+          }}
+        >
           {['Gérer', 'OK']}
         </TextButton>
       </div>
       <div className={s.history}>
         {searchHistory.map((el, id) => (
-          <div key={crypto.randomUUID()}>
-            {id !== 0 && <span className={s.divider} />}
-            <HistoryLine edit={edit}>{el}</HistoryLine>
-          </div>
+          <HistoryLine
+            key={id}
+            edit={edit}
+            id={removeNonAlphanumeric(el) + idGenerator()}
+            index={id}
+            handleDelete={handleDelete}
+          >
+            {el}
+          </HistoryLine>
         ))}
       </div>
     </main>
   );
 };
 
-const HistoryLine = ({ children, edit }) => {
+const HistoryLine = ({ children, edit, id, index, handleDelete }) => {
   const encodedValue = encodeURIComponent(children);
   return (
-    <div className={s.history_line}>
+    <div className={s.history_line + ' history-line-reset'} id={id}>
       <a
         target='_blank'
         href={`https://www.librel.be/listeliv.php?flou&mots_recherche=${encodedValue}&base=allbooks`}
@@ -69,7 +120,12 @@ const HistoryLine = ({ children, edit }) => {
         <History className={s.icon} />
         <p className='body-large'>{children}</p>
       </a>
-      <button tabIndex={edit ? 0 : -1} className={s.icon_button} id='search-history-delete-button'>
+      <button
+        tabIndex={edit ? 0 : -1}
+        className={s.icon_button}
+        id='search-history-delete-button'
+        onClick={() => handleDelete(id, index)}
+      >
         <Delete className={s.icon} />
       </button>
     </div>

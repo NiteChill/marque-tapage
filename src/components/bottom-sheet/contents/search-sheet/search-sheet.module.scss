@@ -33,68 +33,70 @@
     align-items: center;
     background: t.$surface-1;
     overflow: hidden;
-    & > div {
-      display: contents;
-      & > .history_line {
+    & > .history_line {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 4.4rem;
+      width: 100%;
+      &::before {
+        position: absolute;
+        content: '';
+        top: 100%;
+        left: 1.6rem;
+        right: 1.6rem;
+        bottom: -1px;
+        background: t.$outline;
+      }
+      & > a {
+        padding: 0 1.6rem;
         display: flex;
         align-items: center;
-        height: 4.4rem;
-        width: 100%;
-        & > a {
-          padding: 0 1.6rem;
-          display: flex;
-          align-items: center;
-          background: none;
-          height: inherit;
-          border: none;
-          outline: none;
-          gap: 0.8rem;
-          flex: 1;
-          transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
-          & > .icon {
-            color: t.$on-surface-2;
-          }
-          & > p {
-            color: t.$on-surface-0;
-            flex: 1;
-          }
-          &:hover {
-            background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
-          }
-          &:focus-visible {
-            background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
-          }
-          &:active {
-            background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
-          }
+        background: none;
+        height: inherit;
+        border: none;
+        outline: none;
+        gap: 0.8rem;
+        flex: 1;
+        transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+        & > .icon {
+          color: t.$on-surface-2;
         }
-        & > .icon_button {
-          height: 4.4rem;
-          background: none;
-          outline: none;
-          border: none;
-          cursor: pointer;
-          overflow: hidden;
-          width: 0;
-          transition: background 0.2s cubic-bezier(0, 0, 0.2, 1);
-          & > .icon {
-            color: t.$on-surface-2;
-          }
-          &:hover {
-            background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
-          }
-          &:focus-visible {
-            background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
-          }
-          &:active {
-            background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
-          }
+        & > p {
+          color: t.$on-surface-0;
+          flex: 1;
+        }
+        &:hover {
+          background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
+        }
+        &:focus-visible {
+          background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
+        }
+        &:active {
+          background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
         }
       }
-      & > .divider {
-        height: 1px;
-        width: calc(100% - 3.2rem);
-        background: t.$outline;
+      & > .icon_button {
+        height: 4.4rem;
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        width: 0;
+        transition: background 0.2s cubic-bezier(0, 0, 0.2, 1);
+        & > .icon {
+          color: t.$on-surface-2;
+        }
+        &:hover {
+          background: color-mix(in srgb, t.$on-surface-2 8%, transparent);
+        }
+        &:focus-visible {
+          background: color-mix(in srgb, t.$on-surface-2 12%, transparent);
+        }
+        &:active {
+          background: color-mix(in srgb, t.$on-surface-2 16%, transparent);
+        }
       }
     }
   }
