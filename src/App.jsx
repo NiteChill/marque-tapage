@@ -36,8 +36,9 @@ export default function App() {
   }));
 
   useEffect(() => {
-    // Cookies.remove('marque-tapage-visited');
-    const hasVisitedBefore = Cookies.get('marque-tapage-visited');
+    Cookies.remove('marque-tapage-visited');
+    Cookies.remove('marque-tapage-search-history');
+    const hasVisitedBefore = localStorage.getItem('marque-tapage-visited');
     if (!hasVisitedBefore)
       setBottomSheet({
         isOpen: true,

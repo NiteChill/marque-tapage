@@ -1,7 +1,6 @@
 import s from './welcome-sheet.module.scss';
 import welcomeIllustration from '../../../../assets/img/welcome-illustration.svg';
 import { CallToAction } from '../../../call-to-action/call-to-action';
-import Cookies from 'js-cookie';
 import { useContext } from 'react';
 import { BottomSheetContext } from '../../../../context/bottom-sheet-context';
 
@@ -25,7 +24,7 @@ export const WelcomeSheet = () => {
           className={s.call_to_action}
           onClick={() => {
             setOpen((prev) => ({ ...prev, isOpen: false }));
-            Cookies.set('marque-tapage-visited', 'true', { expires: 365 });
+            localStorage.setItem('marque-tapage-visited', 'true');
           }}
         >
           Continuer

@@ -5,7 +5,7 @@ import s from './search-input.module.scss';
 import { BottomSheetContext } from '../../context/bottom-sheet-context';
 import Cookies from 'js-cookie';
 
-export const SearchInput = ({ searchHistory, setSearchHistory }) => {
+export const SearchInput = ({ setSearchHistory }) => {
   const inputRef = useRef(null),
     [open] = useContext(BottomSheetContext),
     [input, setInput] = useState(''),
@@ -13,18 +13,19 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
       e.preventDefault();
       if (!input) return;
       const encodedValue = encodeURIComponent(input);
-      handleCookies(input);
+      handleLocalStorage(input);
       setInput('');
       window.open(
         `https://www.librel.be/listeliv.php?flou&mots_recherche=${encodedValue}&base=allbooks`,
         '_blank'
       );
     },
-    handleCookies = (value) => {
+    handleLocalStorage = (value) => {
       setSearchHistory((prev) => {
         let a = [...prev];
         if (a.length >= 5) a.pop();
         a.unshift(value);
+        localStorage.setItem('marque-tapage-search-history', JSON.stringify(a));
         Cookies.set('marque-tapage-search-history', JSON.stringify(a), {
           expires: 365,
         });
@@ -32,7 +33,7 @@ export const SearchInput = ({ searchHistory, setSearchHistory }) => {
       });
     };
   useEffect(() => {
-    const h = Cookies.get('marque-tapage-search-history');
+    const h = localStorage.getItem('marque-tapage-search-history');
     if (h) setSearchHistory(JSON.parse(h));
   }, []);
   useEffect(() => {

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Delete, History } from '../../../icons/icons';
 import { SearchInput } from '../../../search-input/search-input';
 import s from './search-sheet.module.scss';
-import Cookies from 'js-cookie';
 import { TextButton } from '../../../text-button/text-button';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -11,7 +10,6 @@ import { idGenerator, removeNonAlphanumeric } from '../../../../utils/utils';
 export const SearchSheet = () => {
   let d = [];
   const [searchHistory, setSearchHistory] = useState([]),
-    // [deletedItems, setDeletedItems] = useState([]),
     [edit, setEdit] = useState(false),
     handleDelete = (id, index) => {
       console.log(id);
@@ -39,19 +37,12 @@ export const SearchSheet = () => {
         const a = prev.filter((_, index) => {
           return !new Set(d).has(index);
         });
-        Cookies.set('marque-tapage-search-history', JSON.stringify(a), {
-          expires: 365,
-        });
-        gsap.set('.history-line-reset', {
-          height: 'auto',
-          x: 0,
-          opacity: 1,
-        });
+        localStorage.setItem('marque-tapage-search-history', JSON.stringify(a));
         return a;
       });
     };
   useEffect(() => {
-    const h = Cookies.get('marque-tapage-search-history');
+    const h = localStorage.getItem('marque-tapage-search-history');
     if (h) setSearchHistory(JSON.parse(h));
   }, []);
   useGSAP(() => {
@@ -77,7 +68,6 @@ export const SearchSheet = () => {
         Cherchez, réservez ou commandez un livre grâce au site Librel.
       </p>
       <SearchInput
-        searchHistory={searchHistory}
         setSearchHistory={setSearchHistory}
       />
       <div className={s.history_title}>
