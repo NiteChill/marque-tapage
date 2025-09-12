@@ -54,7 +54,7 @@ export const SearchSheet = () => {
       {
         width: edit ? 56 : 0,
         scale: edit ? 1 : 0.7,
-        ease: 'elastic(1,0.75)',
+        ease: 'elastic(1,0.8)',
         duration: 0.4,
         stagger: 0.02,
       }

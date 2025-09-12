@@ -50,7 +50,7 @@ export const SearchInput = ({ setSearchHistory }) => {
       opacity: s ? 1 : 0,
       width: s ? '7.2rem' : 0,
       touchAction: s ? 'all' : 'none',
-      ease: 'elastic(1,0.75)',
+      ease: 'elastic(1,0.8)',
       duration: 0.4,
     });
   }, [input]);
