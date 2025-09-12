@@ -9,6 +9,7 @@ export const IconButton = ({
   className,
   size,
   disabled = false,
+  id,
 }) => {
   let style = s.standard,
     wh = '3.2rem';
@@ -25,6 +26,7 @@ export const IconButton = ({
     return (
       <Link
         to={to}
+        id={id}
         className={`${s.icon_button} ${style} ${
           disabled ? s.disabled : ''
         } ${className}`}
@@ -36,6 +38,7 @@ export const IconButton = ({
     return (
       <button
         onClick={onClick}
+        id={id}
         className={`${s.icon_button} ${style} ${
           disabled ? s.disabled : ''
         } ${className}`}

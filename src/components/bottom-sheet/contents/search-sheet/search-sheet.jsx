@@ -12,8 +12,6 @@ export const SearchSheet = () => {
   const [searchHistory, setSearchHistory] = useState([]),
     [edit, setEdit] = useState(false),
     handleDelete = (id, index) => {
-      console.log(id);
-
       gsap
         .timeline({
           onComplete: () => {
@@ -46,6 +44,7 @@ export const SearchSheet = () => {
     if (h) setSearchHistory(JSON.parse(h));
   }, []);
   useGSAP(() => {
+    if (searchHistory.length === 0) return;
     gsap.fromTo(
       '#search-history-delete-button',
       {
@@ -54,8 +53,8 @@ export const SearchSheet = () => {
       },
       {
         width: edit ? 56 : 0,
-        scale: edit ? 1 : 0.75,
-        ease: 'elastic(1,1)',
+        scale: edit ? 1 : 0.7,
+        ease: 'elastic(1,0.75)',
         duration: 0.4,
         stagger: 0.02,
       }
@@ -67,9 +66,7 @@ export const SearchSheet = () => {
       <p className='body-medium'>
         Cherchez, réservez ou commandez un livre grâce au site Librel.
       </p>
-      <SearchInput
-        setSearchHistory={setSearchHistory}
-      />
+      <SearchInput setSearchHistory={setSearchHistory} />
       <div className={s.history_title}>
         <p className='label-large'>Recherches récentes</p>
         <TextButton

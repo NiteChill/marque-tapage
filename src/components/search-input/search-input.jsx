@@ -1,9 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { IconButton } from '../icon-button/icon-button';
-import { ArrowUpwardAlt, Search } from '../icons/icons';
+import { ArrowForward, ArrowUpwardAlt, Search } from '../icons/icons';
 import s from './search-input.module.scss';
 import { BottomSheetContext } from '../../context/bottom-sheet-context';
 import Cookies from 'js-cookie';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 export const SearchInput = ({ setSearchHistory }) => {
   const inputRef = useRef(null),
@@ -41,6 +43,17 @@ export const SearchInput = ({ setSearchHistory }) => {
     else inputRef.current.blur();
     setInput('');
   }, [open.isOpen]);
+  useGSAP(() => {
+    const s = input.replace(/\s/g, '');
+    if (s.length > 1) return;
+    gsap.to('#submit-button-search-id', {
+      opacity: s ? 1 : 0,
+      width: s ? '7.2rem' : 0,
+      touchAction: s ? 'all' : 'none',
+      ease: 'elastic(1,0.75)',
+      duration: 0.4,
+    });
+  }, [input]);
   return (
     <div className={s.search_input}>
       <form onSubmit={handleSubmit}>
@@ -57,12 +70,12 @@ export const SearchInput = ({ setSearchHistory }) => {
         </div>
         <IconButton
           theme='secondary'
-          disabled={!input}
           size='extra-large'
           onClick={handleSubmit}
           className={s.submit}
+          id='submit-button-search-id'
         >
-          <ArrowUpwardAlt />
+          <ArrowForward />
         </IconButton>
       </form>
     </div>

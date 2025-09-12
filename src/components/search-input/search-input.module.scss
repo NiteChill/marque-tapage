@@ -38,8 +38,12 @@
       }
     }
     & > .submit {
+      // display: none;
       height: 5.6rem;
-      width: 5.6rem;
+      width: 7.2rem;
+      & > div {
+        width: 5.6rem !important;
+      }
     }
   }
 }
