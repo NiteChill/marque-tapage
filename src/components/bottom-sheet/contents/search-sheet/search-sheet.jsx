@@ -21,14 +21,15 @@ export const SearchSheet = () => {
         .to(`#${id}`, {
           x: '-100%',
           opacity: 0,
-          ease: 'power1.inOut',
-          duration: 0.3,
-        })
-        .to(`#${id}`, {
           height: 0,
           ease: 'power1.inOut',
-          duration: 0.2,
-        });
+          duration: 0.4,
+        })
+        // .to(`#${id}`, {
+        //   height: 0,
+        //   ease: 'power1.inOut',
+        //   duration: 0.2,
+        // });
     },
     updateHistory = () => {
       setSearchHistory((prev) => {
