@@ -37,7 +37,7 @@ export const Home = () => {
             })`
           }
         ),
-        borderRadius: progress.to((val) => `${(val / 100) * 2}rem`),
+        borderRadius: progress.to((val) => `${(val / 100) * 2.4}rem`),
         background: progress.to((val) => {
           const pV = val / 100,
             c1 = [254, 255, 255], // #FEFFFF (surface-0)
