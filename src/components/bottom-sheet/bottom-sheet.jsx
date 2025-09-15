@@ -22,8 +22,8 @@ export const BottomSheet = () => {
         className={s.bottom_sheet}
         ref={bottomSheetRef}
         style={{
-          paddingTop: open.hasHeader ? 0 : '2rem',
           transform: progress.to((val) => `translateY(${100 - val}%)`),
+          height: open?.height ? open.height : 'auto',
         }}
       >
         {open.hasHeader && (

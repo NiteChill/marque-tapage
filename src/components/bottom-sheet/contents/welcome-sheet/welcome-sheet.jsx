@@ -8,6 +8,7 @@ export const WelcomeSheet = () => {
   const [, setOpen] = useContext(BottomSheetContext);
   return (
     <main className={s.welcome_sheet}>
+      <div className={s.content}>
       <div className={s.illustration}>
         <img src={welcomeIllustration} alt='Illustration de bienvenue' />
       </div>
@@ -19,6 +20,7 @@ export const WelcomeSheet = () => {
       <p className='body-medium'>
         N'attendez plus et rejoignez l'aventure Marque Tapage à 100%!
       </p>
+      </div>
       <div className={s.action}>
         <CallToAction
           className={s.call_to_action}
