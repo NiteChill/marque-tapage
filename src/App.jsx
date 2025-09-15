@@ -4,7 +4,6 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import { useRef, useState, useEffect } from 'react';
 import { useRouteTransitions } from './hooks/use-route-transitions';
-import Cookies from 'js-cookie';
 import { FavoritesArticle } from './pages/favorites-article/favorites-article';
 import { Home } from './pages/home/home';
 import { NewsArticle } from './pages/news-article/news-article';
@@ -36,14 +35,14 @@ export default function App() {
   }));
 
   useEffect(() => {
-    Cookies.remove('marque-tapage-visited');
-    Cookies.remove('marque-tapage-search-history');
+    localStorage.removeItem('marque-tapage-visited')
     const hasVisitedBefore = localStorage.getItem('marque-tapage-visited');
     if (!hasVisitedBefore)
       setBottomSheet({
         isOpen: true,
         content: <WelcomeSheet />,
         hasHeader: false,
+        height: '100dvh',
       });
   }, []);
   return (

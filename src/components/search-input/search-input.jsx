@@ -39,8 +39,8 @@ export const SearchInput = ({ setSearchHistory }) => {
     if (h) setSearchHistory(JSON.parse(h));
   }, []);
   useEffect(() => {
-    if (open.isOpen) inputRef.current.focus({ preventScroll: true });
-    else inputRef.current.blur();
+    if (open.isOpen) return;
+    inputRef.current.blur();
     setInput('');
   }, [open.isOpen]);
   useGSAP(() => {
@@ -57,7 +57,7 @@ export const SearchInput = ({ setSearchHistory }) => {
   return (
     <div className={s.search_input}>
       <form onSubmit={handleSubmit}>
-        <div onClick={() => inputRef.current.focus({ preventScroll: true })}>
+        <div onClick={() => inputRef.current.focus()}>
           <Search />
           <input
             className='body-large'
