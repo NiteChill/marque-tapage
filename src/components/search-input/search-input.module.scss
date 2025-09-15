@@ -6,7 +6,7 @@
   height: 5.6rem;
   border-radius: 100rem;
   background: t.$surface-2;
-  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  overflow: hidden;
   cursor: text;
   & > form {
     display: flex;
@@ -38,8 +38,12 @@
       }
     }
     & > .submit {
+      // display: none;
       height: 5.6rem;
-      width: 5.6rem;
+      width: 7.2rem;
+      & > div {
+        width: 5.6rem !important;
+      }
     }
   }
 }
