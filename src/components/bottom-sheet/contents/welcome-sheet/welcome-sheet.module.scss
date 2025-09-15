@@ -14,7 +14,7 @@
     padding-bottom: 4rem;
     & > .illustration {
       display: flex;
-      flex:1;
+      // flex:1;
       align-items: center;
       justify-content: center;
       padding: 4rem 3rem 6rem 3rem;
@@ -35,12 +35,22 @@
     }
   }
   & > .action {
+    position: relative;
     display: flex;
-    flex-shrink: 0;
     align-items: flex-end;
     justify-content: center;
     width: 100%;
+    &::before {
+      content: '';
+      position: absolute;
+      height: calc(50% + 4rem);
+      width: 100%;
+      bottom: 50%;
+      background: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.6) 1rem, rgba(255, 255, 255, 0.8) 2rem, white 4rem, white);
+      z-index: 1;
+    }
     & > .call_to_action {
+      z-index: 2;
       width: 100%;
     }
   }
