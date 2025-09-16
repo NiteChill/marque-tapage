@@ -20,14 +20,14 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    border-radius: 1rem;
-    background: t.$surface-1;
+    border-radius: 2rem;
+    background: t.$surface-0;
     & > .schedule_line {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      height: 4.4rem;
+      height: 5rem;
       padding: 0 1.6rem;
       & > p {
         color: t.$on-surface-0;
@@ -49,21 +49,24 @@
     flex-direction: column;
     width: 100%;
     align-items: flex-end;
-    border-radius: 1rem;
-    background: t.$surface-1;
+    border-radius: 2rem;
+    background: t.$surface-0;
     overflow: auto;
     & > .contacts_line {
       display: flex;
       align-items: center;
       width: 100%;
-      height: 4.4rem;
-      padding: 0 1.6rem;
+      height: 5rem;
+      padding: 0 1rem 0 1.6rem;
       transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       & > p {
         display: flex;
         flex: 1;
-        padding-left: 1rem;
+        padding-left: 2rem;
         color: t.$on-surface-0;
+      }
+      & > .icon {
+        color: t.$on-surface-3;
       }
       &:hover {
         background: color-mix(in srgb, t.$on-surface-1 8%, transparent);

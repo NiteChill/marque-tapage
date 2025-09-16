@@ -21,10 +21,10 @@
   max-height: calc(100dvh - 2.8rem);
   width: 100vw;
   border-radius: 3.6rem 3.6rem 0 0;
-  background: t.$surface-0;
+  background: t.$surface-1;
   z-index: 30;
   overflow-y: auto;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   & > header {
     position: sticky;
     top: 0;

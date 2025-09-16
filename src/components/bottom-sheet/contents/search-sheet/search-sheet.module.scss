@@ -28,16 +28,16 @@
   & > .history {
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
+    border-radius: 3rem;
     width: 100%;
     align-items: center;
-    background: t.$surface-1;
+    background: t.$surface-0;
     overflow: hidden;
     & > .history_line {
       position: relative;
       display: flex;
       align-items: center;
-      height: 4.4rem;
+      height: 5rem;
       width: 100%;
       &::before {
         position: absolute;

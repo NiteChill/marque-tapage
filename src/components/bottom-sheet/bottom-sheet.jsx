@@ -29,7 +29,7 @@ export const BottomSheet = () => {
         {open.hasHeader && (
           <header>
             <IconButton
-            size='large'
+            size='extra-large'
               onClick={() => setOpen((prev) => ({ ...prev, isOpen: false }))}
             >
               <Close />

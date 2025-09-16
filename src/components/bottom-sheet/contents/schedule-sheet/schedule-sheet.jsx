@@ -52,7 +52,7 @@ const ContactsLine = ({ children, src, alt, href }) => {
     <a className={s.contacts_line} href={href}>
       <img src={src} alt={alt} />
       <p className='body-large'>{children}</p>
-      <ChevronRight />
+      <ChevronRight className={s.icon} />
     </a>
   );
 };
