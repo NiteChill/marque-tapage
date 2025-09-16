@@ -57,7 +57,7 @@ export const SearchSheet = () => {
         scale: edit ? 1 : 0.7,
         ease: 'elastic(1,0.8)',
         duration: 0.4,
-        stagger: 0.02,
+        stagger: 0.04,
       }
     );
   }, [edit]);
