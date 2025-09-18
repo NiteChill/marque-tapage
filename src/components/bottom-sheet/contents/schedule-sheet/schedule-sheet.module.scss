@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 2rem 4rem 2rem;
+  padding: 2rem 2rem 4rem 2rem;
   & > h2 {
     color: t.$on-surface-0;
     padding-top: 1.6rem;
@@ -20,14 +20,14 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: 2.6rem;
     background: t.$surface-1;
     & > .schedule_line {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      height: 4.4rem;
+      height: 5.2rem;
       padding: 0 1.6rem;
       & > p {
         color: t.$on-surface-0;
@@ -42,28 +42,31 @@
   & > h4 {
     width: 100%;
     padding: 3.2rem 1.6rem 1.2rem 1.6rem;
-    color: t.$on-surface-0;
+    color: t.$on-surface-3;
   }
   & > .contacts {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: flex-end;
-    border-radius: 1rem;
+    border-radius: 2.6rem;
     background: t.$surface-1;
     overflow: auto;
     & > .contacts_line {
       display: flex;
       align-items: center;
       width: 100%;
-      height: 4.4rem;
-      padding: 0 1.6rem;
+      height: 5.2rem;
+      padding: 0 1rem 0 1.6rem;
       transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       & > p {
         display: flex;
         flex: 1;
-        padding-left: 1rem;
-        color: t.$on-surface-0;
+        padding-left: 2rem;
+        color: t.$on-surface-1;
+      }
+      & > .icon {
+        color: t.$on-surface-4;
       }
       &:hover {
         background: color-mix(in srgb, t.$on-surface-1 8%, transparent);

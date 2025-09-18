@@ -26,10 +26,12 @@ export const BottomSheet = () => {
           height: open?.height ? open.height : 'auto',
         }}
       >
-        {open.hasHeader && (
+        {open.header && (
           <header>
+            <h2 className='headline-small'>{open.header}</h2>
             <IconButton
-            size='large'
+              className={s.close_button}
+              size='extra-large'
               onClick={() => setOpen((prev) => ({ ...prev, isOpen: false }))}
             >
               <Close />
@@ -44,7 +46,7 @@ export const BottomSheet = () => {
           opacity: progress.to((val) => val / 100),
         }}
         onClick={() =>
-          open.hasHeader && setOpen((prev) => ({ ...prev, isOpen: false }))
+          open.header && setOpen((prev) => ({ ...prev, isOpen: false }))
         }
       />
     </>

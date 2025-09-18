@@ -6,11 +6,6 @@ import mailIcon from '../../../../assets/img/mail-icon.svg';
 export const ScheduleSheet = () => {
   return (
     <main className={s.schedule_sheet}>
-      <h2 className='headline-large'>Horaire</h2>
-      <p className='body-medium'>
-        L'horaire ci dessous peut s'avérer incorrect dans certaine conditions
-        exceptionnelles.
-      </p>
       <div className={s.schedule}>
         <ScheduleLine label='Lundi' hours='Fermé' />
         <span className={s.divider} />
@@ -52,7 +47,7 @@ const ContactsLine = ({ children, src, alt, href }) => {
     <a className={s.contacts_line} href={href}>
       <img src={src} alt={alt} />
       <p className='body-large'>{children}</p>
-      <ChevronRight />
+      <ChevronRight className={s.icon} />
     </a>
   );
 };

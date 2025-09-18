@@ -22,9 +22,11 @@
     justify-content: center;
     overflow: hidden;
     padding: 0 1.2rem;
+    & > p {
+      transition: all 0.2s cubic-bezier(0, 0.3, 0.2, 1);
+    }
     & > p:last-child {
       position: absolute;
-      transition: all 0.2s cubic-bezier(0, 0.3, 0.2, 1);
     }
   }
   &:hover > div {

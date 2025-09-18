@@ -24,7 +24,7 @@ export default function App() {
   const [bottomSheet, setBottomSheet] = useState({
     isOpen: false,
     content: '',
-    hasHeader: true,
+    header: '',
   });
   const [{ progress }, progressApi] = useSpring(() => ({
     progress: 0,
@@ -41,7 +41,7 @@ export default function App() {
       setBottomSheet({
         isOpen: true,
         content: <WelcomeSheet />,
-        hasHeader: false,
+        header: '',
         height: '100dvh',
       });
   }, []);
