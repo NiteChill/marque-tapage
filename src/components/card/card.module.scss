@@ -1,0 +1,19 @@
+@use '../../assets/styles/theme.scss' as t;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	border-radius: 2.6rem;
+	background: t.$surface-1;
+	padding: 1.6rem;
+	& > img {
+		border-radius: 1rem;
+	}
+	& > .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.8rem 0 0.2rem 0;
+	}
+}
