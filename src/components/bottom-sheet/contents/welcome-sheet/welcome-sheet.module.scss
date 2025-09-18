@@ -3,7 +3,7 @@
 .welcome_sheet {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem;
+  padding: 0 3.5rem;
   height: 100%;
   & > .content {
     padding-top: 2rem;
@@ -17,21 +17,22 @@
       // flex:1;
       align-items: center;
       justify-content: center;
-      padding: 4rem 3rem 6rem 3rem;
-      max-height: 50dvh;
+      padding: 2rem 0 4rem 0;
+      height: 50dvh;
       & > img {
-        max-height: inherit;
+        height: 100%;
+        width: 100%;
       }
     }
     & > h2 {
-      padding-bottom: 0.8rem;
       color: t.$on-surface-0;
-      text-align: center;
+      padding-bottom: 0.4rem;
+      // text-align: center;
     }
     & > p {
-      padding-top: 0.8rem;
-      color: t.$on-surface-1;
-      text-align: center;
+      padding-bottom: 2rem;
+      color: t.$on-surface-3;
+      // text-align: center;
     }
   }
   & > .action {
@@ -40,13 +41,14 @@
     align-items: flex-end;
     justify-content: center;
     width: 100%;
+    padding-bottom: 3.5rem;
     &::before {
       content: '';
       position: absolute;
       height: calc(50% + 4rem);
       width: 100%;
       bottom: 50%;
-      background: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.6) 1rem, rgba(255, 255, 255, 0.8) 2rem, white 4rem, white);
+      background: linear-gradient(color-mix(in srgb, t.$surface-0 10%, transparent),color-mix(in srgb, t.$surface-0 60%, transparent) 1rem, color-mix(in srgb, t.$surface-0 80%, transparent) 2rem, t.$surface-0 4rem, t.$surface-0);
       z-index: 1;
     }
     & > .call_to_action {

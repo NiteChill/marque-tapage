@@ -12,13 +12,12 @@ export const WelcomeSheet = () => {
       <div className={s.illustration}>
         <img src={welcomeIllustration} alt='Illustration de bienvenue' />
       </div>
-      <h2 className='headline-large'>Bienvenue chez Marque Tapage</h2>
-      <p className='body-medium'>
-        Grâce à ce site, découvrez notre sélection de livre, soyez les premiers
-        à découvrir nos actualités et réserve des livres à travers librel.
+      <h2 className='headline-small'>Bienvenue au Marque Tapage</h2>
+      <p className='body-extra-large'>
+        Ce site rassemble l'expertise du Marque Tapage au même endroit.
       </p>
-      <p className='body-medium'>
-        N'attendez plus et rejoignez l'aventure Marque Tapage à 100%!
+      <p className='body-extra-large'>
+        Recherchez et réservez des livres, découvrez nos coups de coeurs et les news du magasin.
       </p>
       </div>
       <div className={s.action}>

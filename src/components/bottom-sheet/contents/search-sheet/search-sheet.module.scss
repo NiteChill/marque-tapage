@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 2rem 4rem 2rem;
+  padding: 2rem 2rem 4rem 2rem;
   & > h2 {
     color: t.$on-surface-0;
     padding-top: 1.6rem;
@@ -23,15 +23,17 @@
     padding: 1.8rem 0.4rem 0.6rem 1.6rem;
     & > p {
       color: t.$on-surface-2;
+      display: flex;
+      flex: 1;
     }
   }
   & > .history {
     display: flex;
     flex-direction: column;
-    border-radius: 3rem;
+    border-radius: 2.6rem;
     width: 100%;
     align-items: center;
-    background: t.$surface-0;
+    background: t.$surface-1;
     overflow: hidden;
     & > .history_line {
       position: relative;

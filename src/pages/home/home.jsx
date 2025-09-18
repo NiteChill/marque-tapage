@@ -64,7 +64,7 @@ export const Home = () => {
               setOpen({
                 isOpen: true,
                 content: <FavoritesSheet />,
-                hasHeader: true,
+                header: 'Coups de coeur',
               })
             }
           >
@@ -76,7 +76,7 @@ export const Home = () => {
               setOpen({
                 isOpen: true,
                 content: <NewsSheet />,
-                hasHeader: true,
+                header: 'Actualité',
               })
             }
           >
@@ -88,7 +88,7 @@ export const Home = () => {
               setOpen({
                 isOpen: true,
                 content: <SearchSheet />,
-                hasHeader: true,
+                header: 'Rechercher',
               })
             }
           >
@@ -99,7 +99,7 @@ export const Home = () => {
               setOpen({
                 isOpen: true,
                 content: <ScheduleSheet />,
-                hasHeader: true,
+                header: 'Horaire',
               })
             }
           >

@@ -56,8 +56,6 @@ export const SearchInput = ({ setSearchHistory, setEdit }) => {
 	useEffect(() => {
 		const s = input.replace(/\s/g, '');
 		if (s.length > 1) return;
-		console.log(s.length);
-
 		inputApi.start({
 			to: {
 				opacity: s ? 1 : 0,

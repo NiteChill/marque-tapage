@@ -72,6 +72,14 @@
   font-family: 'Manrope', sans-serif;
 }
 
+.body-extra-large {
+  font-size: v.$body-extra-large-size;
+  line-height: v.$body-extra-large-height;
+  font-weight: v.$body-extra-large-weight;
+  letter-spacing: v.$body-extra-large-spacing;
+  font-family: 'Manrope', sans-serif;
+}
+
 .body-large {
   font-size: v.$body-large-size;
   line-height: v.$body-large-height;
