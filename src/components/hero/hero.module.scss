@@ -1,0 +1,41 @@
+@use '../../assets/styles/variables.scss' as v;
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10rem 0;
+	& > .shapes {
+		user-select: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 1.6rem;
+		gap: 1.2rem;
+		max-width: 36rem;
+		& > img {
+			width: 100%;
+		}
+	}
+	& > h1 {
+		text-align: center;
+		font-weight: 700;
+	}
+	& > .features_container {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		padding: 2.4rem 0 0 0;
+	}
+}
+
+@media screen and (min-width: 375px) {
+	.hero {
+		& > h1 {
+			font-size: v.$display-medium-size;
+			line-height: v.$display-medium-height;
+			font-weight: v.$display-medium-weight;
+			letter-spacing: v.$display-medium-spacing;
+		}
+	}
+}

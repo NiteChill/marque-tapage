@@ -56,7 +56,7 @@ export const SearchSheet = () => {
 			}
 		);
 		!edit &&
-			gsap.set('.history-line-reset', { x: 0, opacity: 1, height: '5rem' });
+			gsap.set('.history-line-reset', { x: 0, opacity: 1, height: '5.2rem' });
 	}, [edit]);
 	return (
 		<main className={s.search_sheet}>
