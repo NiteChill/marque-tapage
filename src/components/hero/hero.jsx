@@ -9,16 +9,10 @@ import {
 	Schedule,
 	Search,
 } from '../icons/icons';
-import { FavoritesSheet } from '../bottom-sheet/contents/favorites-sheet/favorites-sheet';
-import { NewsSheet } from '../bottom-sheet/contents/news-sheet/news-sheet';
-import { SearchSheet } from '../bottom-sheet/contents/search-sheet/search-sheet';
-import { ScheduleSheet } from '../bottom-sheet/contents/schedule-sheet/schedule-sheet';
-import { BottomSheetContext } from '../../context/bottom-sheet-context';
-import { useContext } from 'react';
 import s from './hero.module.scss';
 
 export const Hero = () => {
-	const [, setOpen] = useContext(BottomSheetContext);
+	// const [, setOpen] = useContext(BottomSheetContext);
 	return (
 		<section className={s.hero}>
 			<div className={s.shapes}>
@@ -43,48 +37,52 @@ export const Hero = () => {
 			<nav className={s.features_container}>
 				<FeatureButton
 					theme='primary'
-					onClick={() =>
-						setOpen({
-							isOpen: true,
-							content: <FavoritesSheet />,
-							header: 'Coups de coeur',
-						})
-					}
+					to='/b/favorites'
+					// onClick={() =>
+					// 	setOpen({
+					// 		isOpen: true,
+					// 		content: <FavoritesSheet />,
+					// 		header: 'Coups de coeur',
+					// 	})
+					// }
 				>
 					<Favorite />
 				</FeatureButton>
 				<FeatureButton
 					theme='tertiary'
-					onClick={() =>
-						setOpen({
-							isOpen: true,
-							content: <NewsSheet />,
-							header: 'Actualité',
-						})
-					}
+					to='/b/news'
+					// onClick={() =>
+					// 	setOpen({
+					// 		isOpen: true,
+					// 		content: <NewsSheet />,
+					// 		header: 'Actualité',
+					// 	})
+					// }
 				>
 					<BrandAwareness />
 				</FeatureButton>
 				<FeatureButton
 					theme='secondary'
-					onClick={() =>
-						setOpen({
-							isOpen: true,
-							content: <SearchSheet />,
-							header: 'Rechercher',
-						})
-					}
+					to='/b/search'
+					// onClick={() =>
+					// 	setOpen({
+					// 		isOpen: true,
+					// 		content: <SearchSheet />,
+					// 		header: 'Rechercher',
+					// 	})
+					// }
 				>
 					<Search />
 				</FeatureButton>
 				<FeatureButton
-					onClick={() =>
-						setOpen({
-							isOpen: true,
-							content: <ScheduleSheet />,
-							header: 'Horaire',
-						})
-					}
+					to='/b/schedule'
+					// onClick={() =>
+					// 	setOpen({
+					// 		isOpen: true,
+					// 		content: <ScheduleSheet />,
+					// 		header: 'Horaire',
+					// 	})
+					// }
 				>
 					<Schedule />
 				</FeatureButton>

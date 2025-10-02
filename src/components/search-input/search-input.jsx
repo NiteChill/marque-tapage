@@ -1,14 +1,13 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IconButton } from '../icon-button/icon-button';
 import { ArrowForward, ArrowUpwardAlt, Search } from '../icons/icons';
 import s from './search-input.module.scss';
-import { BottomSheetContext } from '../../context/bottom-sheet-context';
 import Cookies from 'js-cookie';
 import { useSpring } from '@react-spring/web';
 
 export const SearchInput = ({ setSearchHistory, setEdit }) => {
 	const inputRef = useRef(null),
-		[open] = useContext(BottomSheetContext),
+		// [open] = useContext(BottomSheetContext),
 		[input, setInput] = useState(''),
 		[inputSpring, inputApi] = useSpring(() => ({
 			from: {

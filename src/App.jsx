@@ -1,75 +1,74 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.scss';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { useGSAP } from '@gsap/react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
-import { useRouteTransitions } from './hooks/use-route-transitions';
-import { FavoritesArticle } from './pages/favorites-article/favorites-article';
 import { Home } from './pages/home/home';
-import { NewsArticle } from './pages/news-article/news-article';
 import { BottomSheet } from './components/bottom-sheet/bottom-sheet';
-import { WelcomeSheet } from './components/bottom-sheet/contents/welcome-sheet/welcome-sheet';
 import { useSpring } from '@react-spring/web';
-import { BottomSheetContext } from './context/bottom-sheet-context';
+import { useRouter } from './hooks/use-router';
 
 export default function App() {
-  const location = useLocation(),
-    nodeRef = useRef(null),
-    [animatePages] = useRouteTransitions(),
-    [firstLoad, setFirstLoad] = useState(true);
-  useGSAP(() => {
-    firstLoad && setFirstLoad(false);
-    !firstLoad && animatePages(location.pathname);
-  }, [location]);
-  const [bottomSheet, setBottomSheet] = useState({
-    isOpen: false,
-    content: '',
-    header: '',
-  });
-  const [{ progress }, progressApi] = useSpring(() => ({
-    progress: 0,
-    config: {
-      tension: 300,
-      friction: 30,
-    },
-  }));
-
+	const location = useLocation(),
+    navigate = useNavigate(),
+    router = useRouter(),
+		nodeRef = useRef(null),
+		[open, setOpen] = useState({
+			isOpen: false,
+			content: null,
+			header: '',
+			height: null,
+		}),
+		[{ progress }, progressApi] = useSpring(() => ({
+			progress: 0,
+			config: {
+				tension: 300,
+				friction: 30,
+			},
+		}));
   useEffect(() => {
-    localStorage.removeItem('marque-tapage-visited')
-    const hasVisitedBefore = localStorage.getItem('marque-tapage-visited');
-    if (!hasVisitedBefore)
-      setBottomSheet({
-        isOpen: true,
-        content: <WelcomeSheet />,
-        header: '',
-        height: '100dvh',
-      });
-  }, []);
-  return (
-    <TransitionGroup component={null}>
-      <CSSTransition key={location.key} timeout={350} nodeRef={nodeRef}>
-        <div
-          ref={nodeRef}
-          style={{
-            display: 'contents',
-          }}
-        >
-          <BottomSheetContext
-            value={[bottomSheet, setBottomSheet, progress, progressApi]}
-          >
-            <Routes location={location}>
-              <Route path='/' element={<Home />} />
-              <Route
-                path='/favorites/:article'
-                element={<FavoritesArticle />}
-              />
-              <Route path='/news/:article' element={<NewsArticle />} />
-              <Route path='*' element={<Navigate to='/' />} />
-            </Routes>
-            <BottomSheet />
-          </BottomSheetContext>
-        </div>
-      </CSSTransition>
-    </TransitionGroup>
-  );
+    router(location, setOpen);
+	}, [location.pathname]);
+	useEffect(() => {
+		if (open.isOpen) progressApi.start({ progress: 100 });
+		else progressApi.start({ progress: 0 });
+	}, [open]);
+	useEffect(() => {
+		localStorage.removeItem('marque-tapage-visited');
+		const hasVisitedBefore = localStorage.getItem('marque-tapage-visited');
+		if (!hasVisitedBefore && location.pathname == '/')
+			navigate('/b/welcome');
+	}, []);
+	return (
+		<TransitionGroup component={null}>
+			<CSSTransition
+				key={location.key}
+				timeout={400}
+				nodeRef={nodeRef}
+			>
+				<div
+					ref={nodeRef}
+					style={{
+						display: 'contents',
+					}}
+				>
+					<Routes location={location}>
+						<Route
+							path='/'
+							element={<Home progress={progress} />}
+						>
+							<Route
+								path='/b/*'
+								element={
+									<BottomSheet
+										progress={progress}
+										open={open}
+									/>
+								}
+							></Route>
+						</Route>
+					</Routes>
+				</div>
+			</CSSTransition>
+		</TransitionGroup>
+	);
 }
