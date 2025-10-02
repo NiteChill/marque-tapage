@@ -7,7 +7,7 @@ import { WelcomeSheet } from '../components/bottom-sheet/contents/welcome-sheet/
 export const useRouter = () => {
 	return function router(location, setOpen) {
 		switch (location.pathname) {
-			case '/b/welcome':
+			case '/welcome':
 				document.title = 'Marque Tapage | Bienvenue';
 				setOpen({
 					isOpen: true,
@@ -16,7 +16,7 @@ export const useRouter = () => {
 					height: '100dvh',
 				});
 				break;
-			case '/b/favorites':
+			case '/favorites':
 				document.title = 'Marque Tapage | Coups de coeur';
 				setOpen({
 					isOpen: true,
@@ -25,7 +25,7 @@ export const useRouter = () => {
 					height: null,
 				});
 				break;
-			case '/b/news':
+			case '/news':
 				document.title = 'Marque Tapage | Actualités';
 				setOpen({
 					isOpen: true,
@@ -34,7 +34,7 @@ export const useRouter = () => {
 					height: null,
 				});
 				break;
-			case '/b/search':
+			case '/search':
 				document.title = 'Marque Tapage | Rechercher';
 				setOpen({
 					isOpen: true,
@@ -43,7 +43,7 @@ export const useRouter = () => {
 					height: null,
 				});
 				break;
-			case '/b/schedule':
+			case '/schedule':
 				document.title = 'Marque Tapage | Horaire';
 				setOpen({
 					isOpen: true,

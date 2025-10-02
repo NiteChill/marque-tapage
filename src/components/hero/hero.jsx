@@ -37,7 +37,7 @@ export const Hero = () => {
 			<nav className={s.features_container}>
 				<FeatureButton
 					theme='primary'
-					to='/b/favorites'
+					to='/favorites'
 					// onClick={() =>
 					// 	setOpen({
 					// 		isOpen: true,
@@ -50,7 +50,7 @@ export const Hero = () => {
 				</FeatureButton>
 				<FeatureButton
 					theme='tertiary'
-					to='/b/news'
+					to='/news'
 					// onClick={() =>
 					// 	setOpen({
 					// 		isOpen: true,
@@ -63,7 +63,7 @@ export const Hero = () => {
 				</FeatureButton>
 				<FeatureButton
 					theme='secondary'
-					to='/b/search'
+					to='/search'
 					// onClick={() =>
 					// 	setOpen({
 					// 		isOpen: true,
@@ -75,7 +75,7 @@ export const Hero = () => {
 					<Search />
 				</FeatureButton>
 				<FeatureButton
-					to='/b/schedule'
+					to='/schedule'
 					// onClick={() =>
 					// 	setOpen({
 					// 		isOpen: true,

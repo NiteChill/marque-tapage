@@ -9,8 +9,8 @@ import { useRouter } from './hooks/use-router';
 
 export default function App() {
 	const location = useLocation(),
-    navigate = useNavigate(),
-    router = useRouter(),
+		navigate = useNavigate(),
+		router = useRouter(),
 		nodeRef = useRef(null),
 		[open, setOpen] = useState({
 			isOpen: false,
@@ -25,8 +25,8 @@ export default function App() {
 				friction: 30,
 			},
 		}));
-  useEffect(() => {
-    router(location, setOpen);
+	useEffect(() => {
+		router(location, setOpen);
 	}, [location.pathname]);
 	useEffect(() => {
 		if (open.isOpen) progressApi.start({ progress: 100 });
@@ -35,8 +35,7 @@ export default function App() {
 	useEffect(() => {
 		localStorage.removeItem('marque-tapage-visited');
 		const hasVisitedBefore = localStorage.getItem('marque-tapage-visited');
-		if (!hasVisitedBefore && location.pathname == '/')
-			navigate('/b/welcome');
+		if (!hasVisitedBefore && location.pathname == '/') navigate('/welcome');
 	}, []);
 	return (
 		<TransitionGroup component={null}>
@@ -57,7 +56,7 @@ export default function App() {
 							element={<Home progress={progress} />}
 						>
 							<Route
-								path='/b/*'
+								path='/*'
 								element={
 									<BottomSheet
 										progress={progress}
