@@ -34,7 +34,7 @@
 
 .standard {
   & > div {
-    background: t.$surface-3;
+    background: t.$surface-2;
     & > div > * {
       color: t.$on-surface-2;
     }
@@ -64,7 +64,7 @@
 
 .disabled {
   & > div {
-    background: t.$surface-3;
+    background: t.$surface-2;
     opacity: 0.8;
     & > div > * {
       color: t.$on-surface-2;

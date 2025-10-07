@@ -3,7 +3,7 @@ import s from './home.module.scss';
 import { Card } from '../../components/card/card';
 import brandIllustration from '../../assets/img/brand-illustration.svg';
 import { Hero } from '../../components/hero/hero';
-import { CarouselSection } from '../../components/caroussel-sections/carousel-section';
+import { CardGroup } from '../../components/card-group/card-group';
 import { dummyFavorites, dummyNews } from '../../data/dummy-cards';
 import { Outlet } from 'react-router-dom';
 
@@ -22,16 +22,16 @@ export const Home = ({progress}) => {
 						return `translateY(${(val / 100) * 16}px) scale(${scale})`;
 					}),
 					borderRadius: progress.to((val) => `${(val / 100) * 3.2}rem`),
-					background: progress.to((val) => {
-						const pV = val / 100,
-							c1 = [254, 255, 255], // #FEFFFF (surface-0)
-							c2 = [246, 247, 249]; // #F6F7F9 (surface-2)
-						return `rgb(${Math.round(
-							c1[0] + (c2[0] - c1[0]) * pV
-						)}, ${Math.round(c1[1] + (c2[1] - c1[1]) * pV)}, ${Math.round(
-							c1[2] + (c2[2] - c1[2]) * pV
-						)})`;
-					}),
+					// background: progress.to((val) => {
+					// 	const pV = val / 100,
+					// 		c1 = [254, 255, 255], // #FEFFFF (surface-0)
+					// 		c2 = [246, 247, 249]; // #F6F7F9 (surface-2)
+					// 	return `rgb(${Math.round(
+					// 		c1[0] + (c2[0] - c1[0]) * pV
+					// 	)}, ${Math.round(c1[1] + (c2[1] - c1[1]) * pV)}, ${Math.round(
+					// 		c1[2] + (c2[2] - c1[2]) * pV
+					// 	)})`;
+					// }),
 				}}
 				animate
 			>
@@ -41,7 +41,7 @@ export const Home = ({progress}) => {
 					src={brandIllustration}
 				>
 					<h6 className={`headline-small ${s.title}`}>
-						Marque Tapage c’est quoi?
+						Marque Tapage c'est quoi?
 					</h6>
 					<p className={`body-large ${s.text}`}>
 						Marque Tapage est une librairie indépendante qui se concentre sur le
@@ -52,7 +52,7 @@ export const Home = ({progress}) => {
 						eget condimentum velit, sit amet feugiat lectus.
 					</p>
 				</Card>
-				<CarouselSection
+				<CardGroup
 					title='Actualités'
 					// seeAllHandler={() =>
 					// 	setOpen({
@@ -63,7 +63,7 @@ export const Home = ({progress}) => {
 					// }
 					array={dummyNews}
 				/>
-				<CarouselSection
+				<CardGroup
 					title='Coups de coeur'
 					// seeAllHandler={() =>
 					// 	setOpen({

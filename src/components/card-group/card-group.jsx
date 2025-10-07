@@ -1,19 +1,19 @@
 import { Card } from '../card/card';
 import { IconButton } from '../icon-button/icon-button';
 import { ChevronRight, Star } from '../icons/icons';
-import s from './carousel-section.module.scss';
+import s from './card-group.module.scss';
 
-export const CarouselSection = ({ title, seeAllHandler, array }) => {
+export const CardGroup = ({ title, seeAllHandler, array }) => {
 	return (
-		<section className={s.carousel_section}>
+		<section className={s.card_group}>
 			<header>
-				<h2 className='headline-small'>{title}</h2>
-				<IconButton
+				<h2 className='headline-large'>{title}</h2>
+				{/* <IconButton
 					className={s.close_button}
 					onClick={seeAllHandler}
 				>
 					<ChevronRight />
-				</IconButton>
+				</IconButton> */}
 			</header>
 			<div>
 				{array.map((item) =>
@@ -25,7 +25,7 @@ export const CarouselSection = ({ title, seeAllHandler, array }) => {
 							to={`/news/${item.id}`}
 						>
 							<h6 className='headline-small'>{item.title}</h6>
-							<p className='label-large'>
+							<p className='body-large'>
 								{new Date(item.creationDate).toLocaleDateString('fr-FR', {
 									day: 'numeric',
 									month: 'long',
@@ -41,8 +41,8 @@ export const CarouselSection = ({ title, seeAllHandler, array }) => {
 							className={s.favorites_card}
 							to
 						>
-							<h6 className='title-medium'>{item.title}</h6>
-							<p className='label-large'>
+							<h6 className='title-large'>{item.title}</h6>
+							<p className='body-large'>
 								{item.rating} <Star className={s.star} />•{' '}
 								<span>{item.categories.join(', ')}</span>
 							</p>

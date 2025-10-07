@@ -1,30 +1,31 @@
-$primary: #FFD8E5;
-$primary-1: #FFEBF1;
-$on-primary: #F75C8A;
+$primary: hsl(340, 100%, 92%);
+$primary-1: hsl(340, 100%, 96%);
+$on-primary: hsl(340, 91%, 66%);
 
-$secondary: #D1E9D2;
-$secondary-1: #E0F0E1;
-$on-secondary: #1F7A22;
+$secondary: hsl(124, 35%, 87%);
+$secondary-1: hsl(124, 35%, 91%);
+$on-secondary: hsl(124, 59%, 30%);
 
-$tertiary: #CCE7F5;
-$tertiary-1: #DDEFF8;
-$on-tertiary: #086391;
+$tertiary: hsl(200, 67%, 88%);
+$tertiary-1: hsl(200, 66%, 92%);
+$on-tertiary: hsl(200, 90%, 30%);
 
-$surface-0: #FEFFFF;
-$surface-1: #F9FAFB;
-$surface-2: #F6F7F9;
-$surface-3: #F0F2F5;
+$surface-0: hsl(240, 20%, 95%);
+$surface-1: hsl(240, 20%, 97%);
+$surface-2: hsl(240, 20%, 100%);
+// $surface-2: hsl(220, 20%, 97%);
+// $surface-3: hsl(216, 20%, 95%);
 
-$on-surface-0: #1D1D20;
-$on-surface-1: #494950;
-$on-surface-2: #62626A;
-$on-surface-3: #929296;
-$on-surface-4: #C7D1DC;
+$on-surface-0: hsl(240, 4%, 10%);
+$on-surface-1: hsl(240, 4%, 30%);
+$on-surface-2: hsl(240, 4%, 40%);
+$on-surface-3: hsl(240, 4%, 60%);
+$on-surface-4: hsl(211, 4%, 70%);
 
 $outline: #EFF2F5;
 
 $bottomsheet-handle: #C8CCCC;
 
-$rating: #EDC41F;
+$rating: hsl(48, 80%, 60%);
 
 $error: #FF383C;
