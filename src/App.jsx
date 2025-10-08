@@ -90,6 +90,19 @@ export default function App() {
 								}
 							/>
 							<Route
+								path='/favorites/:id'
+								element={
+									<BottomSheet
+										progress={progress}
+										loc={loc}
+										path='/favorites/:id'
+										title='Coups de coeur'
+									>
+										<FavoritesSheet />
+									</BottomSheet>
+								}
+							/>
+							<Route
 								path='/news'
 								element={
 									<BottomSheet

@@ -7,7 +7,7 @@ export const CardGroup = ({ title, seeAllHandler, array }) => {
 	return (
 		<section className={s.card_group}>
 			<header>
-				<h2 className='headline-large'>{title}</h2>
+				<h2 className='headline-medium'>{title}</h2>
 				{/* <IconButton
 					className={s.close_button}
 					onClick={seeAllHandler}
@@ -39,7 +39,7 @@ export const CardGroup = ({ title, seeAllHandler, array }) => {
 							src={item.src}
 							key={item.id}
 							className={s.favorites_card}
-							to
+							to={`/favorites/${item.id}`}
 						>
 							<h6 className='title-large'>{item.title}</h6>
 							<p className='body-large'>
