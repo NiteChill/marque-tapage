@@ -1,8 +1,11 @@
+import { Outlet } from 'react-router-dom';
 import s from './news-sheet.module.scss';
 
 export const NewsSheet = () => {
-  return (
-    <main className={s.news_sheet}>
-    </main>
-  );
+	return (
+		<>
+			<main className={s.news_sheet}></main>
+			{/* <Outlet /> */}
+		</>
+	);
 };

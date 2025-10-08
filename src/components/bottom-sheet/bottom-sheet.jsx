@@ -1,13 +1,13 @@
 import { animated } from '@react-spring/web';
 import s from './bottom-sheet.module.scss';
-import { useRef } from 'react';
+import { use, useEffect, useRef } from 'react';
 import { IconButton } from '../icon-button/icon-button';
 import { Close } from '../icons/icons';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-export const BottomSheet = ({ progress, open }) => {
-  const bottomSheetRef = useRef(null),
-    navigate = useNavigate();
+export const BottomSheet = ({ progress, loc, path, title, height = 'auto', children }) => {
+	const bottomSheetRef = useRef(null),
+		navigate = useNavigate();
 	return (
 		<>
 			<animated.div
@@ -15,12 +15,12 @@ export const BottomSheet = ({ progress, open }) => {
 				ref={bottomSheetRef}
 				style={{
 					transform: progress.to((val) => `translateY(${100 - val}%)`),
-					height: open.height ? open.height : 'auto',
+					height: height,
 				}}
 			>
-				{open.header && (
+				{title && (
 					<header>
-						<h2 className='headline-small'>{open.header}</h2>
+						<h2 className='headline-small'>{title}</h2>
 						<IconButton
 							className={s.close_button}
 							size='extra-large'
@@ -30,17 +30,18 @@ export const BottomSheet = ({ progress, open }) => {
 						</IconButton>
 					</header>
 				)}
-				{open.content}
-				{/* <Outlet /> */}
+				{/* {open.content} */}
+				{/* <Outlet	 /> */}
+				{children}
 			</animated.div>
 			<animated.div
 				className={`${s.backdrop} ${
-					open.isOpen ? s.visible : ''
+					loc === path ? s.visible : ''
 				}`}
 				style={{
 					opacity: progress.to((val) => val / 100),
 				}}
-				onClick={() => open.isOpen && open.header && navigate('/')}
+				onClick={() => loc === path && title && navigate('/')}
 			/>
 		</>
 	);

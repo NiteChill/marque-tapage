@@ -1,59 +1,26 @@
-import { FavoritesSheet } from '../components/bottom-sheet/contents/favorites-sheet/favorites-sheet';
-import { NewsSheet } from '../components/bottom-sheet/contents/news-sheet/news-sheet';
-import { ScheduleSheet } from '../components/bottom-sheet/contents/schedule-sheet/schedule-sheet';
-import { SearchSheet } from '../components/bottom-sheet/contents/search-sheet/search-sheet';
-import { WelcomeSheet } from '../components/bottom-sheet/contents/welcome-sheet/welcome-sheet';
+const routes = {
+	'/welcome': 'Marque Tapage | Bienvenue',
+	'/favorites': 'Marque Tapage | Coups de coeur',
+	'/news': 'Marque Tapage | Actualités',
+	'/search': 'Marque Tapage | Rechercher',
+	'/schedule': 'Marque Tapage | Horaire',
+};
 
 export const useRouter = () => {
-	return function router(location, setOpen) {
-		switch (location.pathname) {
-			case '/welcome':
-				document.title = 'Marque Tapage | Bienvenue';
-				setOpen({
-					isOpen: true,
-					content: <WelcomeSheet />,
-					header: null,
-					height: '100dvh',
-				});
-				break;
-			case '/favorites':
-				document.title = 'Marque Tapage | Coups de coeur';
-				setOpen({
-					isOpen: true,
-					content: <FavoritesSheet />,
-					header: 'Coups de coeur',
-					height: null,
-				});
-				break;
-			case '/news':
-				document.title = 'Marque Tapage | Actualités';
-				setOpen({
-					isOpen: true,
-					content: <NewsSheet />,
-					header: 'Actualités',
-					height: null,
-				});
-				break;
-			case '/search':
-				document.title = 'Marque Tapage | Rechercher';
-				setOpen({
-					isOpen: true,
-					content: <SearchSheet />,
-					header: 'Rechercher',
-					height: null,
-				});
-				break;
-			case '/schedule':
-				document.title = 'Marque Tapage | Horaire';
-				setOpen({
-					isOpen: true,
-					content: <ScheduleSheet />,
-					header: 'Horaire',
-					height: null,
-				});
-				break;
-			default:
-				document.title = "Marque Tapage | La Librairie à hauteur d'Enfance";
+	return function router(loc, setLoc) {
+		const path = loc.pathname;
+		if (routes[path]) {
+			document.title = routes[path];
+			setLoc(path);
+		} else if (path.startsWith('/news/')) {
+			document.title = 'Marque Tapage | Actualités';
+			setLoc('/news/:id');
+		} else if (path.startsWith('/favorites/')) {
+			document.title = 'Marque Tapage | Coups de coeur';
+			setLoc('/favorites/:id');
+		} else {
+			document.title = "Marque Tapage | La Librairie à hauteur d'Enfance";
+			setLoc(null);
 		}
 	};
 };
